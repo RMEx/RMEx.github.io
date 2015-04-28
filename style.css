@@ -17,6 +17,15 @@ body {
   */
 }
 
+.forkme {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  background-image: url(images/forkme.png);
+}
+
 .content {
   max-width: 700px;
   margin:auto;
@@ -40,6 +49,7 @@ code {
   color: #FFFFFF;
   margin: 24px;
   padding: 8px;
+  border-radius: 8px;
 }
 
 
@@ -69,21 +79,27 @@ h1 {
   font-weight: 900;
 }
 h2 {
-  color: #E27A3F;
-  font-size:1.5em;
+  color: #DF5A49;
+  font-size:2em;
   font-weight: 900;
+  margin: 32px;
+  margin-top: 64px;
 }
 
 h3 {
   color: #E27A3F;
   font-size:1.4em;
   font-weight: 900;
+  margin: 28px;
+  margin-top: 48px;
 }
 
 h4 {
   font-size:1.3em;
   font-weight: 900;
   color: #45B29D;
+  margin: 18px;
+  margin-top: 36px;
 }
 
 .title-container {

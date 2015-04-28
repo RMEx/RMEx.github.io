@@ -68,6 +68,8 @@
             plusieurs projets.)
           </p>
 
+          <h2>Utilisation normale</h2>
+
           <h3>Premier lancement</h3>
           <p>
             Pour lancer <strong>RMEBuilder</strong>, il suffit de cliquer sur
@@ -174,13 +176,13 @@
           </p>
 
           <h4>Gestion des dépendances</h4>
-          Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
+          <p>Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
           Au moment de la construction (à l'appel de la commande <code>build</code> ou <code>build dev</code>), le logiciel
           téléchargera les dépendances et les installera. Si un paquet à des dépendances et qu'il est supprimé du schéma,
-          si la dépendance n'est pas explicitement (<code>add</code>) membre du schéma, elle sera aussi supprimée.
+          si la dépendance n'est pas explicitement (<code>add</code>) membre du schéma, elle sera aussi supprimée.</p>
 
           <h3>Compilation temporaire</h3>
-          Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
+          <p>Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
           Pour palier à ce problème, il est possible de faire une compilation temporaire. En utilisant la commande
           <code>build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
           l'endroit où ils sont téléchargé. L'avantage de cette méthode est qu'il ne faut utiliser le <code>build dev</code> (et
@@ -188,7 +190,7 @@
           Chaque mise à jours de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jours.
           <br />
           Par contre, avant de diffuser votre projet, il est impératif de faire un <code>build</code> pour ne plus faire dépendre le jeu
-          des fichiers temporaires!
+          des fichiers temporaires!</p>
 
           <h3>Mettre à jours RMEBuilder</h3>
           <p>
@@ -206,6 +208,24 @@
             plus qu'a crypter (ou pas) votre projet et le diffuser !
           </p>
 
+          <h2>Pour les scripteurs</h2>
+          <p>
+            <strong>RMEBuilder</strong> n'est évidemment pas destiné à ne rester qu'un outil pour diffuser
+            <strong>nos</strong> scripts. Nous espérons qu'il sera utilisé par un maximum pour partager facilement
+            des scripts à travers le monde ! (étoiles dans les yeux)
+          </p>
+
+          <h3>Rendre un script accessible depuis RMEBuilder</h3>
+          <h4>Medium de publication</h4>
+          <p>
+            Pour qu'un script soit accessible depuis <strong>RMEBuilder</strong>, il est important de comprendre
+            qu'il doit être disponible depuis le net. Pour cela, nous avons pris l'habitude d'utiliser <a href="https://www.github.com">Github</a>,
+            qui nous permet de versionner nos scripts, cependant, vous pouvez vous servir de Dropox (même si Github est vraiment adapté à ça!).
+          </p>
+          <h4>Notion de paquet</h4>
+          <p>
+          </p>
         </div>
+        <a class="forkme" href="https://github.com/RMEx/RMEBuilder"></a>
     </body>
 </html>
