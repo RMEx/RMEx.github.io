@@ -86,8 +86,126 @@
           <p>
             Voici un exemple de premier lancement de <strong>RMEBuilder</strong>.
           </p>
-          <a href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
+          <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
           Agrandir !</a>
+
+          <h3>Composition d'un schéma</h3>
+          <p>
+            Une fois qu'un projet est ciblé dans le logiciel, la routine est d'ajouter les
+            scripts que l'on veut dans son projet. Pour cela, on peut se servir de la commande
+            <code>show</code> qui affiche la liste des paquets disponnibles sur le net.
+            <br />
+            La commande <code>about nom-du-paquet</code> permet, elle, de renvoyer les informations
+            (description, auteurs etc) relative à un paquet.
+          </p>
+          <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Pour ajouter des paquets au projet, il suffit d'utiliser la commande
+            <code>add nom-du-paquet</code>. Cette commande aura pour effet d'ajouter un paquet
+            dans la liste des paquets à intégrer au projet.<br />
+            La commande <code>schema</code> permet d'afficher la liste des paquets à installer.
+          </p>
+
+          <a class="image" href="images/3.gif"><img src="images/3.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p class="alert">
+            Il est évident que si <strong>RMEBuilder</strong> est fermé, à sa réouverture,
+            l'ensemble des scripts présents dans le schéma seront toujours visibles !
+          </p>
+
+          <h4>Moduler le schéma</h4>
+          <p>
+            Par défaut, lors de la phase de "compilation", que nous verrons un peu plus tard,
+            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre:
+            <ul>
+              <li><code>remove nom-du-paquet</code> : supprime le paquet de la liste des paquets à compiler</li>
+              <li><code>move nom-du-paquet up</code> : monte le paquet référencé une place au dessus</li>
+              <li><code>move nom-du-paquet down</code> : descend le paquet référencé une place en dessous</li>
+            </ul>
+          </p>
+
+          <a class="image" href="images/4.gif"><img src="images/4.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p class="alert">
+            Ahah dans le <strong>Gif</strong>, j'ai fait une faute de frappe (mouwe aha) :D désolé !
+          </p>
+
+          <h3>Compiler votre projet</h3>
+          <p>Une fois que votre schéma est, de votre point de vue, complet, vous pouvez compiler votre projet.
+          Une compilation dans <strong>RMEBuilder</strong> consiste à télécharger les scripts présent dans le schéma
+          et de les assembler dans le fichier <code>Scripts.rvdata2</code>.</p>
+
+          <p class="alert">
+            Attention, avant de "compiler" votre projet, il est impératif de fermer votre projet
+            dans RPGMaker. Vous pourrez l'ouvrir après, une fois la compilation exécutée.
+          </p>
+
+          <a class="image" href="images/5.gif"><img src="images/5.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Au lancement de la commande <code>build</code>, le logiciel va télécharger les scripts s'il ne les connait
+            pas, et va créer un fichier <code>Scripts.rvdata2</code> qu'il va fusionner avec les scripts déjà existants.
+            Votre projet peut donc déjà contenir des scripts pré-installés. <br />
+            A chaque fois que la commande <code>build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
+            sont purgés. Donc si vous retirez, après une compilation, un élément de votre schéma (via la commande <code>remove</code>)
+            et que vous recompilez (<code>build</code>), les mises à jours auront bien été prise en compte.
+          </p>
+
+          <h4>Mettre à jours des paquets</h4>
+          <p>
+            Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jours pour vos scripts installés.
+            C'est très pratique pour rester au courant des ajouts dans les scripts :
+          </p>
+          <a class="image" href="images/6.gif"><img src="images/6.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Vous pouvez aussi vous servir de la commande <code>check updates</code>, qui vérifiera si des paquets ne sont pas à jours.
+          </p>
+
+          <p class="alert">
+            Une fois qu'un paquet est mis à jours, il est impératif de refaire un <code>build</code>, donc en fermant le projet RPGMaker
+            pour que la mise à jours soit prise en compte !
+          </p>
+
+          <h4>Gestion des dépendances</h4>
+          Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
+          Au moment de la construction (à l'appel de la commande <code>build</code> ou <code>build dev</code>), le logiciel
+          téléchargera les dépendances et les installera. Si un paquet à des dépendances et qu'il est supprimé du schéma,
+          si la dépendance n'est pas explicitement (<code>add</code>) membre du schéma, elle sera aussi supprimée.
+
+          <h3>Compilation temporaire</h3>
+          Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
+          Pour palier à ce problème, il est possible de faire une compilation temporaire. En utilisant la commande
+          <code>build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
+          l'endroit où ils sont téléchargé. L'avantage de cette méthode est qu'il ne faut utiliser le <code>build dev</code> (et
+          donc fermer le projet RPGMaker) que quand on <strong>ajoute</strong> ou <strong>supprime</strong> un fichier dans le schéma.
+          Chaque mise à jours de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jours.
+          <br />
+          Par contre, avant de diffuser votre projet, il est impératif de faire un <code>build</code> pour ne plus faire dépendre le jeu
+          des fichiers temporaires!
+
+          <h3>Mettre à jours RMEBuilder</h3>
+          <p>
+            Quand une mise à jours de <strong>RMEBuilder</strong> est disponnible, le logiciel vous préviens,
+            il suffit de valider la mise à jours et le logiciel se met tout seul à jours.
+          </p>
+
+          <a class="image" href="images/maj.gif"><img src="images/maj.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <h3>Avant de diffuser son projet</h3>
+          <p>
+            Une fois que votre projet est fini, vous pouvez supprimer le fichier <code>build_schema.rb</code> (sans avoir oublié de faire
+            une dernière fois <code>build</code>, pour être sur que tous vos scripts sont installés) du répertoire du projet. Et il ne vous reste
+            plus qu'a crypter (ou pas) votre projet et le diffuser ! 
+          </p>
+
         </div>
     </body>
 </html>

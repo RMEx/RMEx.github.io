@@ -44,8 +44,8 @@ code {
 
 
 .image{
-  background-color: #E27A3F;
-  padding: 8px;
+  display: block;
+  margin: 20px;
 }
 
 img {
@@ -57,6 +57,10 @@ img {
 a {
   color: #45B29D;
   text-decoration: none;
+}
+
+li {
+  margin-bottom: 15px;
 }
 
 h1 {
@@ -74,6 +78,12 @@ h3 {
   color: #E27A3F;
   font-size:1.4em;
   font-weight: 900;
+}
+
+h4 {
+  font-size:1.3em;
+  font-weight: 900;
+  color: #45B29D;
 }
 
 .title-container {
