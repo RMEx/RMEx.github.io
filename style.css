@@ -8,14 +8,17 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1.2em;
   color: #36464F;
+
+  /**
   background-image:url(images/lollogo.png);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position:right bottom;
+  */
 }
 
 .content {
-  max-width: 640px;
+  max-width: 700px;
   margin:auto;
   padding: 12px;
 }
@@ -29,6 +32,7 @@ code {
   background-color: #fAfAfA;
   border:1px solid silver;
   padding: 4px;
+  color: #333333;
 }
 
 .alert {
@@ -36,6 +40,18 @@ code {
   color: #FFFFFF;
   margin: 24px;
   padding: 8px;
+}
+
+
+.image{
+  background-color: #E27A3F;
+  padding: 8px;
+}
+
+img {
+  width: 100%;
+  display: block;
+  margin: 8px;
 }
 
 a {
