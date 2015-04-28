@@ -37,11 +37,17 @@ p {
   line-height: 28px;
 }
 
-code {
+.inline-code {
   background-color: #fAfAfA;
   border:1px solid silver;
   padding: 4px;
   color: #333333;
+}
+
+pre {
+  border: 1px solid #F2F2F2;
+  padding: 8px;
+  overflow: auto;
 }
 
 .alert {
