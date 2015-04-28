@@ -82,7 +82,7 @@ h2 {
   color: #DF5A49;
   font-size:2em;
   font-weight: 900;
-  margin: 32px;
+  margin-bottom: 32px;
   margin-top: 64px;
 }
 
@@ -90,7 +90,7 @@ h3 {
   color: #E27A3F;
   font-size:1.4em;
   font-weight: 900;
-  margin: 28px;
+  margin_bottom: 28px;
   margin-top: 48px;
 }
 
@@ -98,7 +98,7 @@ h4 {
   font-size:1.3em;
   font-weight: 900;
   color: #45B29D;
-  margin: 18px;
+  margin-bottom: 18px;
   margin-top: 36px;
 }
 
