@@ -32,7 +32,7 @@
           <p>
             L'idée de <strong>RMEBuilder</strong> est de permettre
             aux utilisateurs de scripts d'installer très facilement
-            des script. En effet, <strong>RMEBuilder</strong> est un petit
+            des scripts. En effet, <strong>RMEBuilder</strong> est un petit
             exécutable qui permet d'ajouter des scripts dans un ou plusieurs
             projets. Voici par exemple, un workflow typique d'utilisation
             de <strong>RMEBuilder</strong>
@@ -42,14 +42,14 @@
               <li>On lance la routine de construction du projet</li>
               <li>On make !</li>
             </ul>
-            Il est aussi possible de mettre les scripts à jours selon
+            Il est aussi possible de mettre les scripts à jour selon
             la dernière version et évidemment, tout scripteur peut enrichir
-            la base de données de script disponible (on espère qu'ils le feront)!
+            la base de données de scripts disponibles (on espère qu'ils le feront)!
           </p>
           <h3>Téléchargement</h3>
           <p>
             <strong>RMEBuilder</strong> est très facile
-            à télécharger, il suffit de se rendre sur la page
+            à obtenir, il suffit de se rendre sur la page
             <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Relases</a>
             et télécharger le fichier <code class="inline-code">RMEBuilder.zip</code>.
           </p>
@@ -58,7 +58,7 @@
           <p class="alert">
             Pour que <strong>RMEBuilder</strong> fonctionne
             parfaitement, il est parfois nécéssaire de configurer
-            son anti-virus pour qu'il accepte que <strong>RMEBuilder</strong>
+            son anti-virus/parefeu pour qu'il accepte que <strong>RMEBuilder</strong>
             télécharge des fichiers.
           </p>
           <p>
@@ -178,7 +178,7 @@
 
           <h4>Gestion des dépendances</h4>
           <p>Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
-          Au moment de la construction (à l'appel de la commande <code class="inline-code">build</code> ou <code class="inline-code">build dev</code>), le logiciel
+          Au moment de la construction (à l'appel de la commande <code class="inline-code">build</code> ou <code class="inline-code">buid dev</code>), le logiciel
           téléchargera les dépendances et les installera. Si un paquet à des dépendances et qu'il est supprimé du schéma,
           si la dépendance n'est pas explicitement (<code class="inline-code">add</code>) membre du schéma, elle sera aussi supprimée.</p>
 
@@ -186,17 +186,17 @@
           <p>Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
           Pour palier à ce problème, il est possible de faire une compilation temporaire. En utilisant la commande
           <code class="inline-code">build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
-          l'endroit où ils sont téléchargé. L'avantage de cette méthode est qu'il ne faut utiliser le <code class="inline-code">build dev</code> (et
+          l'endroit où ils sont téléchargés. L'avantage de cette méthode est qu'il ne faut utiliser le <code class="inline-code">build dev</code> (et
           donc fermer le projet RPGMaker) que quand on <strong>ajoute</strong> ou <strong>supprime</strong> un fichier dans le schéma.
-          Chaque mise à jours de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jours.
+          Chaque mise à jours de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jour.
           <br />
           Par contre, avant de diffuser votre projet, il est impératif de faire un <code class="inline-code">build</code> pour ne plus faire dépendre le jeu
           des fichiers temporaires!</p>
 
-          <h3>Mettre à jours RMEBuilder</h3>
+          <h3>Mettre à jour RMEBuilder</h3>
           <p>
-            Quand une mise à jours de <strong>RMEBuilder</strong> est disponible, le logiciel vous préviens,
-            il suffit de valider la mise à jours et le logiciel se met tout seul à jours.
+            Quand une mise à jour de <strong>RMEBuilder</strong> est disponible, le logiciel vous prévient,
+            il suffit de valider la mise à jour et le logiciel se met tout seul à jour.
           </p>
 
           <a class="image" href="images/maj.gif"><img src="images/maj.gif" alt="launch RME!"/>
@@ -221,7 +221,7 @@
           <p>
             Pour qu'un script soit accessible depuis <strong>RMEBuilder</strong>, il est important de comprendre
             qu'il doit être disponible depuis le net. Pour cela, nous avons pris l'habitude d'utiliser <a href="https://www.github.com">Github</a>,
-            qui nous permet de versionner nos scripts, cependant, vous pouvez vous servir de Dropox (même si Github est vraiment adapté à ça!).
+            qui nous permet de versionner nos scripts, cependant, vous pouvez vous servir de Dropbox (même si Github est vraiment adapté à ça!).
           </p>
           <h4>Notion de paquet</h4>
           <p>
@@ -336,7 +336,7 @@ Et voila, vous en savez assez pour packager correctement vos scripts!
             De plus, avec la compilation via <code class="inline-code">build dev</code>, vous pouvez modifier votre
             code depuis votre éditeur favoris, sans devoir faire sans arrêt des copié-collé à la moindre modification.
           </p>
-          <h4>Clônage de paquet existant</h4>
+          <h4>Clonage de paquet existant</h4>
           <p>
             Pour une raison quelconque, on pourrait avoir envie de modifier un paquet déjà publié par quelqu'un d'autre,
             dans <strong>RMEBuilder</strong> vous pouvez vous servir de la commande <code class="inline-code">clone nom-du-paquer</code>
@@ -351,8 +351,8 @@ Et voila, vous en savez assez pour packager correctement vos scripts!
           <p>
           C'en est fini du tour de présentation de <strong>RMEBuilder</strong>, nous espérons qu'il sera réellement
           utile et qu'il changera les habitudes d'installation des scripts pour les simplifier. Nous espérons aussi que
-          les scripteurs n'hésiteront pas à publier leurs scripts ! Plus on est de fou plus on rigole :D
-          <br /><strong>A BIENTOT</strong>.</p>
+          les scripteurs n'hésiteront pas à publier leurs scripts ! Plus on est de fous plus on rit :D
+          <br /><strong>A BIENTÔT</strong>.</p>
         </div>
         <a class="forkme" href="https://github.com/RMEx/RMEBuilder"></a>
     </body>
