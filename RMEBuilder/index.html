@@ -159,6 +159,18 @@
             et que vous recompilez (<code class="inline-code">build</code>), les mises à jour auront bien été prises en compte.
           </p>
 
+          <h4>Gestion des Assets</h4>
+          <p>Il arrive parfois que lors de la compilation de votre projet <strong>RMEBuilder</strong> vous demande si vous désirez fusionner
+          les assets. C'est lorsque le paquet propose des fichiers externes (des images ou une DLL par exemple). Lors de la première compilation
+          avec un script requierrant des assets, il est généralement conseillé de répondre oui (Y). Par contre, lorsque le script a déjà été
+          ajouté, il n'est pas nécéssaire de re-fusionner les assets. Imaginez par exemple qu'il s'agit d'image que vous avez déjà modifié, il serait
+          dommage de perdre ces modifications!</p>
+
+          <p class="alert">
+            A tout moment, vous pouvez récupérer les assets d'un paquet en utilisant la commande
+            <code class="inline-code">get assets of package-name</code>.
+          </p>
+
           <h4>Mettre à jour des paquets</h4>
           <p>
             Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jour pour vos scripts installés.
@@ -303,6 +315,40 @@ Package.new(
   dependancies: ["standardize-rgss"]
 )</code></pre>
 Voila, vous en savez assez pour packager correctement vos scripts!
+          </p>
+
+          <h4>Exemple avec des Assets</h4>
+          <p>
+            Il arrive qu'un script soit compléter de fichiers complémentaires, des assets. Par exemple, une DLL
+            ou encore des images. Pour ça il suffit d'ajouter un paramètre <code class="inline-code">assets</code>
+            qui est un <strong>Hash</strong> dont la clé est l'url (relatif ou non) de la ressource et la valeur est
+            sa position dans le projet. Voici par exemple <a href="https://github.com/hyperaho/RPGMaker/tree/master/useless">le fichier paquet du script "raho-useless"</a>, qui ne sert que
+            de démonstration aux assets :
+
+
+<pre><code># Package description
+Package.new(
+	name: 'raho-useless',
+	version: vsn(1, 0, 0),
+	authors: {'Hyperaho' => ''},
+	components: ['script.rb'],
+	assets: {
+		'assets/raho1.png' => 'Graphics/Pictures/raho1.png',
+		'http://full.ouplo.com/f/12/AgkA.png' => 'Graphics/Pictures/raho2.png'
+	},
+	description: 'Epic script for Epic projects'
+)
+</code></pre>
+
+            Ce paquet utilise volontairement une image relative et une image absolue.
+          </p>
+
+          <p class="alert">
+            Attention ! N'oubliez pas que <strong>RMEBuilder</strong> se veut utilisé par un maximum
+            de personne, n'hésitez donc pas à préfixer vos assets pour éviter les collisions !
+            Par exemple, si je propose un menu qui utilise une image, ne pas hésiter à nommer l'image
+            <code class="inline-code">nuki-menu-mon-image.png</code>, pour garantir qu'elle n'écrase aucune image
+            (ou qu'elle ne soit écrasée par personne).
           </p>
 
           <h4>Soumettre son paquet comme un patch à RMEBuilder</h4>
