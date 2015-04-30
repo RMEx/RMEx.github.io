@@ -8,7 +8,8 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1.2em;
   color: #36464F;
-
+  background-color: #113F59;
+  margin: 40px 20px;
 }
 
 .container {
@@ -57,13 +58,17 @@ body {
   padding: 0;
 }
 
-.container a {
+.container a, .title-container a {
   background-color: #D54F58;
   color: #F3EDD3;
   padding: 8px;
   font-weight: 900;
   border-radius: 10px;
+}
 
+.title-container a {
+  position: relative;
+  top: -30px;
 }
 
 .forkme {
@@ -76,9 +81,25 @@ body {
 }
 
 .content {
-  max-width: 700px;
-  margin:auto;
-  padding: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 50px;
+  background-color: #FFF;
+}
+
+.content > h2 {
+  color: #FFF;
+  background-color: #19BEC0;
+  border-top: 10px solid #113F59;
+  font-size:2em;
+  font-weight: 900;
+  padding: 30px 50px;
+  margin: 100px -50px 30px;
+  border-bottom-right-radius: 100px;
+}
+
+.content strong {
+  color: #19BEC0;
 }
 
 p {
@@ -87,36 +108,45 @@ p {
 }
 
 .inline-code {
-  background-color: #fAfAfA;
-  border:1px solid silver;
-  padding: 4px;
+  background-color: #FFF;
+  border: 1px solid silver;
+  padding: 0px 6px;
   color: #333333;
+  display: inline-block;
+  border-radius: 4px;
+  opacity: 0.8;
 }
 
 pre {
-  border: 1px solid #F2F2F2;
-  padding: 8px;
+  border: 1px solid silver;
+  padding: 16px;
+  margin: 40px 0;
   overflow: auto;
+  border-radius: 4px;
 }
 
 .alert {
   background-color: #E27A3F;
   color: #FFFFFF;
-  margin: 24px;
-  padding: 8px;
-  border-radius: 8px;
+  margin: 30px;
+  padding: 18px;
+  border-radius: 18px;
 }
 
+.alert strong {
+  color: #F3EDD3;
+}
 
 .image{
   display: block;
-  margin: 20px;
+  margin: 40px 20px;
 }
 
 img {
   width: 100%;
   display: block;
-  margin: 8px;
+  margin: 8px 0px;
+  border: 1px solid silver;
 }
 
 a {
@@ -133,20 +163,19 @@ h1 {
   font-size:4em;
   font-weight: 900;
 }
+
 h2 {
-  color: #DF5A49;
+  color: #F3EDD3;
   font-size:2em;
   font-weight: 900;
-  margin-bottom: 32px;
-  margin-top: 64px;
 }
 
 h3 {
   color: #E27A3F;
-  font-size:1.4em;
+  font-size:1.6em;
   font-weight: 900;
-  margin_bottom: 28px;
-  margin-top: 48px;
+  margin_bottom: 50px;
+  margin-top: 60px;
 }
 
 h4 {
@@ -154,14 +183,25 @@ h4 {
   font-weight: 900;
   color: #45B29D;
   margin-bottom: 18px;
-  margin-top: 36px;
+  margin-top: 60px;
 }
 
 .title-container {
-  margin: 26px;
+  max-width: 800px;
+  margin: -30px -50px 30px;
+  background-color: #19BEC0;
+  padding: 30px;
 }
 
 .title-container > h1, .title-container > h2 {
   margin: 0;
   text-align: center;
+}
+
+.title-container > h1 {
+  color: #113F59;
+}
+
+.title-container > h2 {
+  color: #FFF;
 }
