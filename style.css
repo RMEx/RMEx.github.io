@@ -23,6 +23,7 @@ body {
 }
 .container > div {
     margin: auto;
+    height: 400px;
 }
 
 .container h1 {
@@ -44,7 +45,8 @@ body {
 
 .container li {
   display: inline-block;
-  margin: 0;
+  margin-right: 12px;
+  margin-top: 16px;
   padding: 0;
   text-align: center;
 }
@@ -61,7 +63,6 @@ body {
   padding: 8px;
   font-weight: 900;
   border-radius: 10px;
-  margin-right: 8px;
 
 }
 
