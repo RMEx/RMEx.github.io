@@ -17,7 +17,7 @@
             <strong>RMEBuilder</strong> est un outil pour
             faciliter l'installation de script
             dans <strong>RPGMaker VXAce</strong>.
-            Il permet de gerer les dépendances sans avoir à
+            Il permet de gérer les dépendances sans avoir à
             s'en soucier. En plus du confort qu'offre cet
             outil, <strong>RMEBuilder</strong> est un
             logiciel libre, distribué sous licence
@@ -50,8 +50,8 @@
           <p>
             <strong>RMEBuilder</strong> est très facile
             à obtenir, il suffit de se rendre sur la page
-            <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Relases</a>
-            et télécharger le fichier <code class="inline-code">RMEBuilder.zip</code>.
+            <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Releases</a>
+            et de télécharger le fichier <code class="inline-code">RMEBuilder.zip</code>.
           </p>
 
           <h3>Installation</h3>
@@ -74,7 +74,7 @@
           <h3>Premier lancement</h3>
           <p>
             Pour lancer <strong>RMEBuilder</strong>, il suffit de cliquer sur
-            <code class="inline-code">RMEBuilder.bat</code> (qui est un raccourcis pour lancer le logiciel).
+            <code class="inline-code">RMEBuilder.bat</code> (qui est un raccourci pour lancer le logiciel).
             Au premier lancement, le logiciel demandera de choisir le projet cible.
             Il est impératif de pointer un projet RPGMaker VXace valide.<br />
             Une fois que le logiciel connait le projet cible, un dispositif de saisie
@@ -94,11 +94,11 @@
 
           <h3>Composition d'un schéma</h3>
           <p>
-            Une fois qu'un projet est ciblé dans le logiciel, la routine est d'ajouter les
-            scripts que l'on veut dans son projet. Pour cela, on peut se servir de la commande
+            Une fois qu'un projet est ciblé dans le logiciel, on peut désormais ajouter les
+            scripts que l'on veut dans son projet. Pour cela, on se sert de la commande
             <code class="inline-code">show</code> qui affiche la liste des paquets disponibles sur le net.
             <br />
-            La commande <code class="inline-code">about nom-du-paquet</code> permet, elle, de renvoyer les informations
+            La commande <code class="inline-code">about nom-du-paquet</code> permet de renvoyer les informations
             (description, auteurs etc) relative à un paquet.
           </p>
           <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
@@ -122,11 +122,11 @@
           <h4>Moduler le schéma</h4>
           <p>
             Par défaut, lors de la phase de "compilation", que nous verrons un peu plus tard,
-            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre:
+            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre :
             <ul>
               <li><code class="inline-code">remove nom-du-paquet</code> : supprime le paquet de la liste des paquets à compiler</li>
-              <li><code class="inline-code">move nom-du-paquet up</code> : monte le paquet référencé une place au dessus</li>
-              <li><code class="inline-code">move nom-du-paquet down</code> : descend le paquet référencé une place en dessous</li>
+              <li><code class="inline-code">move nom-du-paquet up</code> : monte le paquet référencé d'une place</li>
+              <li><code class="inline-code">move nom-du-paquet down</code> : descend le paquet référencé d'une place</li>
             </ul>
           </p>
 
@@ -154,7 +154,7 @@
             Au lancement de la commande <code class="inline-code">build</code>, le logiciel va télécharger les scripts s'il ne les connait
             pas, et va créer un fichier <code class="inline-code">Scripts.rvdata2</code> qu'il va fusionner avec les scripts déjà existants.
             Votre projet peut donc déjà contenir des scripts pré-installés. <br />
-            A chaque fois que la commande <code class="inline-code">build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
+            À chaque fois que la commande <code class="inline-code">build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
             sont purgés. Donc si vous retirez, après une compilation, un élément de votre schéma (via la commande <code class="inline-code">remove</code>)
             et que vous recompilez (<code class="inline-code">build</code>), les mises à jours auront bien été prise en compte.
           </p>
@@ -303,19 +303,19 @@ Package.new(
   description: 'Provide a full customisable text engine',
   dependancies: ["standardize-rgss"]
 )</code></pre>
-Et voila, vous en savez assez pour packager correctement vos scripts!
+Voila, vous en savez assez pour packager correctement vos scripts!
           </p>
 
           <h4>Soumettre son paquet comme un patch à RMEBuilder</h4>
           <p>
             La liste des paquets est un dépôt Github. Pour y contribuer, il suffit
             simplement de "<strong>forker</strong>" <a href="https://github.com/RMEx/RMEPackages">ce projet</a>.
-            Pour ajouter un paquet, il suffit de modifier la liste des paquets disponible dans le fichier <code class="inline-code">packages.rb</code>.
+            Pour ajouter un paquet, il suffit de modifier la liste des paquets disponibles dans le fichier <code class="inline-code">packages.rb</code>.
             En ajoutant une relation <code class="inline-code">"nom du paquet" => "url du package.rb relatif"</code>.
           </p>
 
           <p class="alert">
-            Attention, il faut pointer vers un fichier brute. Pas vers une page html, pour Github
+            Attention, il faut pointer vers un fichier brut. Pas vers une page html, pour Github
             il faut impérativement utiliser le lien <strong>raw</strong> pour que seul le contenu du fichier soit
             exporté (et non toute la page HTML).
           </p>
@@ -334,7 +334,7 @@ Et voila, vous en savez assez pour packager correctement vos scripts!
             donc créer des répertoires pour vos scripts en production dans ce répertoire et les travailler comme s'ils
             étaient déjà publiés. Cela évite de devoir publier d'entrée de jeu un script non terminé. <br />
             De plus, avec la compilation via <code class="inline-code">build dev</code>, vous pouvez modifier votre
-            code depuis votre éditeur favoris, sans devoir faire sans arrêt des copié-collé à la moindre modification.
+            code depuis votre éditeur favori (emacs), sans devoir faire sans arrêt des copier-coller à la moindre modification.
           </p>
           <h4>Clonage de paquet existant</h4>
           <p>
@@ -352,7 +352,7 @@ Et voila, vous en savez assez pour packager correctement vos scripts!
           C'en est fini du tour de présentation de <strong>RMEBuilder</strong>, nous espérons qu'il sera réellement
           utile et qu'il changera les habitudes d'installation des scripts pour les simplifier. Nous espérons aussi que
           les scripteurs n'hésiteront pas à publier leurs scripts ! Plus on est de fous plus on rit :D
-          <br /><strong>A BIENTÔT</strong>.</p>
+          <br /><strong>À BIENTÔT</strong>.</p>
         </div>
         <a class="forkme" href="https://github.com/RMEx/RMEBuilder"></a>
     </body>
