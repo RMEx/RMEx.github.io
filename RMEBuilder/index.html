@@ -156,24 +156,24 @@
             Votre projet peut donc déjà contenir des scripts pré-installés. <br />
             À chaque fois que la commande <code class="inline-code">build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
             sont purgés. Donc si vous retirez, après une compilation, un élément de votre schéma (via la commande <code class="inline-code">remove</code>)
-            et que vous recompilez (<code class="inline-code">build</code>), les mises à jours auront bien été prise en compte.
+            et que vous recompilez (<code class="inline-code">build</code>), les mises à jour auront bien été prises en compte.
           </p>
 
-          <h4>Mettre à jours des paquets</h4>
+          <h4>Mettre à jour des paquets</h4>
           <p>
-            Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jours pour vos scripts installés.
+            Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jour pour vos scripts installés.
             C'est très pratique pour rester au courant des ajouts dans les scripts :
           </p>
           <a class="image" href="images/6.gif"><img src="images/6.gif" alt="launch RME!"/>
           Agrandir !</a>
 
           <p>
-            Vous pouvez aussi vous servir de la commande <code class="inline-code">check updates</code>, qui vérifiera si des paquets ne sont pas à jours.
+            Vous pouvez aussi vous servir de la commande <code class="inline-code">check updates</code>, qui vérifiera si des paquets ne sont pas à jour.
           </p>
 
           <p class="alert">
-            Une fois qu'un paquet est mis à jours, il est impératif de refaire un <code class="inline-code">build</code>, donc en fermant le projet RPGMaker
-            pour que la mise à jours soit prise en compte !
+            Une fois qu'un paquet est mis à jour, il est impératif de refaire un <code class="inline-code">build</code>, donc en fermant le projet RPGMaker
+            pour que la mise à jour soit prise en compte !
           </p>
 
           <h4>Gestion des dépendances</h4>
@@ -188,7 +188,7 @@
           <code class="inline-code">build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
           l'endroit où ils sont téléchargés. L'avantage de cette méthode est qu'il ne faut utiliser le <code class="inline-code">build dev</code> (et
           donc fermer le projet RPGMaker) que quand on <strong>ajoute</strong> ou <strong>supprime</strong> un fichier dans le schéma.
-          Chaque mise à jours de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jour.
+          Chaque mise à jour de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jour.
           <br />
           Par contre, avant de diffuser votre projet, il est impératif de faire un <code class="inline-code">build</code> pour ne plus faire dépendre le jeu
           des fichiers temporaires!</p>
@@ -248,7 +248,7 @@
             Ce paquet correspond au strict minimum.
             <ul>
               <li><code class="inline-code">name</code>: correspond au nom du paquet</li>
-              <li><code class="inline-code">version</code>: décrit la version (c'est grâce à cet argument qu'on peut décrire les mises à jours)</li>
+              <li><code class="inline-code">version</code>: décrit la version (c'est grâce à cet argument qu'on peut décrire les mises à jour)</li>
               <li><code class="inline-code">authors</code>: un hash avec comme clé l'auteur et comme valeur son courriel</li>
               <li><code class="inline-code">components</code>: une liste des fichiers, dans l'ordre, qui constituent le script. Leur chemin est relatif au fichier <code class="inline-code">package.rb</code></li>
               <li><code class="inline-code">description</code>: une petite description du paquet</li>
