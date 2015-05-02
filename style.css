@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-size: 1.2em;
