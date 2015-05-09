@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../style.css" />
+        <title>RMEBuilder</title>
+    </head>
+
+    <body>
+        <div class="content">
+          <div class="title-container">
+            <a href="../">RMEx</a>
+            <h1>RMEBuilder</h1>
+            <h2>Package Manager for RPGMaker VXAce</h2>
+          </div>
+          <p>
+            <strong>RMEBuilder</strong> is a tool for easy installation of some scripts into <strong>RPGMaker VXAce</strong>.
+            It allows to manage dependencies.
+            Morevoer, <strong>RMEBuilder</strong> is a free software, released under
+            <strong>LGPL</strong>.<br />
+            <strong>RMEBuilder</strong> synchronizes itself with the latest versions of scripts to ensure that scripts are up to date.
+          </p>
+          <h3>General overview</h3>
+          <p>
+            With <strong>RMEBuilder</strong>, the scripts could be easily installed. Here is a typical usage-workflow:
+            <ul>
+              <li>We select a projeect</li>
+              <li>We link scripts to the project (with command line)</li>
+              <li>We run the build-routine</li>
+              <li>We make awesome game with RPGMaker!</li>
+            </ul>
+            It is too possible to update the scripts. And each scripters could
+            add their own work on the package-list.
+          </p>
+          <h3>Download</h3>
+          <p>
+            <strong>RMEBuilder</strong> is verry simple to download. You just
+            have to go on
+            <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Releases</a>
+            and download  <code class="inline-code">RMEBuilder.zip</code>.
+          </p>
+
+          <h3>Installation</h3>
+          <p class="alert">
+            For RMEBuilder good-working. You have to configure your firewall (to authorize RMEBuilder for file's downloading).
+          </p>
+          <p>
+            For installation, you just have to decompress<code class="inline-code">RMEBuilder.zip</code> where you want ! (Not an RPGMaker project, you can build multiple project with RMEBuilder).
+          </p>
+
+          <h2>Classical usage</h2>
+
+          <h3>First tour</h3>
+          <p>
+            Pour lancer <strong>RMEBuilder</strong>, il suffit de cliquer sur
+            <code class="inline-code">RMEBuilder.bat</code> (qui est un raccourci pour lancer le logiciel).
+            Au premier lancement, le logiciel demandera de choisir le projet cible.
+            Il est impératif de pointer un projet RPGMaker VXace valide.<br />
+            Une fois que le logiciel connait le projet cible, un dispositif de saisie
+            de commande est accessible. L'usage de ce dispositif permet d'entrer des
+            commandes relatives à la construction d'un projet.
+          </p>
+          <p class="alert">
+            A tout moment il est possible de changer de projet cible en entrant la commande
+            <code class="inline-code">target</code>, qui en plus de donner le chemin du projet cible, permet
+            de changer cette cible.
+          </p>
+          <p>
+            Voici un exemple de premier lancement de <strong>RMEBuilder</strong>.
+          </p>
+          <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <h3>Composition d'un schéma</h3>
+          <p>
+            Une fois qu'un projet est ciblé dans le logiciel, on peut désormais ajouter les
+            scripts que l'on veut dans son projet. Pour cela, on se sert de la commande
+            <code class="inline-code">show</code> qui affiche la liste des paquets disponibles sur le net.
+            <br />
+            La commande <code class="inline-code">about nom-du-paquet</code> permet de renvoyer les informations
+            (description, auteurs etc) relative à un paquet.
+          </p>
+          <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Pour ajouter des paquets au projet, il suffit d'utiliser la commande
+            <code class="inline-code">add nom-du-paquet</code>. Cette commande aura pour effet d'ajouter un paquet
+            dans la liste des paquets à intégrer au projet.<br />
+            La commande <code class="inline-code">schema</code> permet d'afficher la liste des paquets à installer.
+          </p>
+
+          <a class="image" href="images/3.gif"><img src="images/3.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p class="alert">
+            Il est évident que si <strong>RMEBuilder</strong> est fermé, à sa réouverture,
+            l'ensemble des scripts présents dans le schéma seront toujours visibles !
+          </p>
+
+          <h4>Moduler le schéma</h4>
+          <p>
+            Par défaut, lors de la phase de "compilation", que nous verrons un peu plus tard,
+            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre :
+            <ul>
+              <li><code class="inline-code">remove nom-du-paquet</code> : supprime le paquet de la liste des paquets à compiler</li>
+              <li><code class="inline-code">move nom-du-paquet up</code> : monte le paquet référencé d'une place</li>
+              <li><code class="inline-code">move nom-du-paquet down</code> : descend le paquet référencé d'une place</li>
+            </ul>
+          </p>
+
+          <a class="image" href="images/4.gif"><img src="images/4.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p class="alert">
+            Ahah dans le <strong>Gif</strong>, j'ai fait une faute de frappe (mouwe aha) :D désolé !
+          </p>
+
+          <h3>Compiler votre projet</h3>
+          <p>Une fois que votre schéma est, de votre point de vue, complet, vous pouvez compiler votre projet.
+          Une compilation dans <strong>RMEBuilder</strong> consiste à télécharger les scripts présent dans le schéma
+          et de les assembler dans le fichier <code class="inline-code">Scripts.rvdata2</code>.</p>
+
+          <p class="alert">
+            Attention, avant de "compiler" votre projet, il est impératif de fermer votre projet
+            dans RPGMaker. Vous pourrez l'ouvrir après, une fois la compilation exécutée.
+          </p>
+
+          <a class="image" href="images/5.gif"><img src="images/5.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Au lancement de la commande <code class="inline-code">build</code>, le logiciel va télécharger les scripts s'il ne les connait
+            pas, et va créer un fichier <code class="inline-code">Scripts.rvdata2</code> qu'il va fusionner avec les scripts déjà existants.
+            Votre projet peut donc déjà contenir des scripts pré-installés. <br />
+            À chaque fois que la commande <code class="inline-code">build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
+            sont purgés. Donc si vous retirez, après une compilation, un élément de votre schéma (via la commande <code class="inline-code">remove</code>)
+            et que vous recompilez (<code class="inline-code">build</code>), les mises à jour auront bien été prises en compte.
+          </p>
+
+          <h4>Gestion des Assets</h4>
+          <p>Il arrive parfois que lors de la compilation de votre projet <strong>RMEBuilder</strong> vous demande si vous désirez fusionner
+          les assets. C'est lorsque le paquet propose des fichiers externes (des images ou une DLL par exemple). Lors de la première compilation
+          avec un script requierrant des assets, il est généralement conseillé de répondre oui (Y). Par contre, lorsque le script a déjà été
+          ajouté, il n'est pas nécéssaire de re-fusionner les assets. Imaginez par exemple qu'il s'agit d'image que vous avez déjà modifié, il serait
+          dommage de perdre ces modifications!</p>
+
+          <p class="alert">
+            A tout moment, vous pouvez récupérer les assets d'un paquet en utilisant la commande
+            <code class="inline-code">get assets of package-name</code>.
+          </p>
+
+          <h4>Mettre à jour des paquets</h4>
+          <p>
+            Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jour pour vos scripts installés.
+            C'est très pratique pour rester au courant des ajouts dans les scripts :
+          </p>
+          <a class="image" href="images/6.gif"><img src="images/6.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <p>
+            Vous pouvez aussi vous servir de la commande <code class="inline-code">check updates</code>, qui vérifiera si des paquets ne sont pas à jour.
+          </p>
+
+          <p class="alert">
+            Une fois qu'un paquet est mis à jour, il est impératif de refaire un <code class="inline-code">build</code>, donc en fermant le projet RPGMaker
+            pour que la mise à jour soit prise en compte !
+          </p>
+
+          <h4>Gestion des dépendances</h4>
+          <p>Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
+          Au moment de la construction (à l'appel de la commande <code class="inline-code">build</code> ou <code class="inline-code">build dev</code>), le logiciel
+          téléchargera les dépendances et les installera. Si un paquet à des dépendances et qu'il est supprimé du schéma,
+          si la dépendance n'est pas explicitement (<code class="inline-code">add</code>) membre du schéma, elle sera aussi supprimée.</p>
+
+          <h3>Compilation temporaire</h3>
+          <p>Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
+          Pour palier à ce problème, il est possible de faire une compilation temporaire. En utilisant la commande
+          <code class="inline-code">build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
+          l'endroit où ils sont téléchargés. L'avantage de cette méthode est qu'il ne faut utiliser le <code class="inline-code">build dev</code> (et
+          donc fermer le projet RPGMaker) que quand on <strong>ajoute</strong> ou <strong>supprime</strong> un fichier dans le schéma.
+          Chaque mise à jour de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jour.
+          <br />
+          Par contre, avant de diffuser votre projet, il est impératif de faire un <code class="inline-code">build</code> pour ne plus faire dépendre le jeu
+          des fichiers temporaires!</p>
+
+          <h3>Mettre à jour RMEBuilder</h3>
+          <p>
+            Quand une mise à jour de <strong>RMEBuilder</strong> est disponible, le logiciel vous prévient,
+            il suffit de valider la mise à jour et le logiciel se met tout seul à jour.
+          </p>
+
+          <a class="image" href="images/maj.gif"><img src="images/maj.gif" alt="launch RME!"/>
+          Agrandir !</a>
+
+          <h3>Avant de diffuser son projet</h3>
+          <p>
+            Une fois que votre projet est fini, vous pouvez supprimer le fichier <code class="inline-code">build_schema.rb</code> (sans avoir oublié de faire
+            une dernière fois <code class="inline-code">build</code>, pour être sur que tous vos scripts sont installés) du répertoire du projet. Et il ne vous reste
+            plus qu'a crypter (ou pas) votre projet et le diffuser !
+          </p>
+
+          <h2>Pour les scripteurs</h2>
+          <p>
+            <strong>RMEBuilder</strong> n'est évidemment pas destiné à ne rester qu'un outil pour diffuser
+            <strong>nos</strong> scripts. Nous espérons qu'il sera utilisé par un maximum pour partager facilement
+            des scripts à travers le monde ! (étoiles dans les yeux)
+          </p>
+
+          <h3>Rendre un script accessible depuis RMEBuilder</h3>
+          <h4>Medium de publication</h4>
+          <p>
+            Pour qu'un script soit accessible depuis <strong>RMEBuilder</strong>, il est important de comprendre
+            qu'il doit être disponible depuis le net. Pour cela, nous avons pris l'habitude d'utiliser <a href="https://www.github.com">Github</a>,
+            qui nous permet de versionner nos scripts, cependant, vous pouvez vous servir de Dropbox (même si Github est vraiment adapté à ça!).
+          </p>
+          <h4>Notion de paquet</h4>
+          <p>
+            Pour qu'un script soit compréhensible par <strong>RMEBuilder</strong>, il est important
+            que son anatomie soit décrite dans un fichier, qui devra toujours porter le nom <code class="inline-code">package.rb</code>
+          </p>
+          <h4>Exemple avec un paquet simple</h4>
+          <p>
+            Le paquet pris en exemple est le paquet <code class="inline-code">nuki-break-scene</code>, qui permet de créer facilement
+            un système de pause. <a href="https://github.com/nukiFW/RPGMaker/tree/master/break-scene">Son répertoire Github se trouve ici</a>.
+            <br />
+            L'anatomie du paquet est assez simple, <code class="inline-code">script.rb</code> est le script (logique!) et <code class="inline-code">package.rb</code> décrit
+            le paquet :
+<pre><code class="ruby"># Package description
+  Package.new(
+  	name: 'nuki-break-scene',
+  	version: vsn(1, 0, 0),
+  	authors: {'Nuki' => 'xaviervdw@gmail.com'},
+  	components: ['script.rb'],
+  	description: 'Provide a little customizable scene for InGame\'s pause',
+  )
+</code></pre>
+            Comme vous pouvez le voir, il suffit d'instancier un objet <code class="inline-code">Package</code>.
+            Ce paquet correspond au strict minimum.
+            <ul>
+              <li><code class="inline-code">name</code>: correspond au nom du paquet</li>
+              <li><code class="inline-code">version</code>: décrit la version (c'est grâce à cet argument qu'on peut décrire les mises à jour)</li>
+              <li><code class="inline-code">authors</code>: un hash avec comme clé l'auteur et comme valeur son courriel</li>
+              <li><code class="inline-code">components</code>: une liste des fichiers, dans l'ordre, qui constituent le script. Leur chemin est relatif au fichier <code class="inline-code">package.rb</code></li>
+              <li><code class="inline-code">description</code>: une petite description du paquet</li>
+            </ul>
+          </p>
+          <h4>Exemple avec plusieurs fichiers</h4>
+          <p>
+            Cette fois ci on se sert <a href="https://github.com/RMEx/RME/tree/master/src">du paquet de RME</a>. Comme vous pouvez le voir, il n'y a pas beaucoup
+            de changements, si ce n'est qu'il y a plusieurs auteurs et plusieurs fichiers constituants :
+<pre><code class="ruby"># Package description
+Package.new(
+  name: 'RME',
+  version: vsn(0, 0, 5),
+  authors: {
+    'Nuki' => 'xaviervdw@gmail.com',
+    'Grim' => 'grimfw@gmail.com',
+    'Raho' => '',
+    'Joke' => 'joke@biloucorp.com',
+    'Mspawn' => ''
+  },
+  components: [
+    'SDK.rb',
+    'SDK.Gui.rb',
+    'Database.rb',
+    'Internal.rb',
+    'EvEx.rb',
+    'Commands.rb',
+    'Incubator.rb',
+    'EE4Cmds.rb',
+    'Tools.rb',
+    'DocGenerator.rb',
+    'Doc.rb'
+  ],
+  description: 'RME is a powerful tool to improve your RPGMaker VXAce experience!'
+)
+</code></pre>
+          </p>
+          <h4>Exemple avec dépendances</h4>
+          <p>
+            Le script <code class="inline-code">DisplayText</code>
+            (<a href="https://github.com/nukiFW/RPGMaker/tree/master/DisplayText">visible ici</a>)
+            requiert l'installation préalable du script <code class="inline-code">StandardizeRGSS</code>.
+            Il suffit de le spécifier dans un argument <code class="inline-code">dependancies</code>, qui prend
+            une liste des scripts dont dépendent le script en question :
+<pre><code># Package description
+Package.new(
+  name: 'display-text',
+  version: vsn(1, 0, 0),
+  authors: {'Nuki' => 'xaviervdw@gmail.com'},
+  components: ['script.rb'],
+  description: 'Provide a full customisable text engine',
+  dependancies: ["standardize-rgss"]
+)</code></pre>
+Voila, vous en savez assez pour packager correctement vos scripts!
+          </p>
+
+          <h4>Exemple avec des Assets</h4>
+          <p>
+            Il arrive qu'un script soit compléter de fichiers complémentaires, des assets. Par exemple, une DLL
+            ou encore des images. Pour ça il suffit d'ajouter un paramètre <code class="inline-code">assets</code>
+            qui est un <strong>Hash</strong> dont la clé est l'url (relatif ou non) de la ressource et la valeur est
+            sa position dans le projet. Voici par exemple <a href="https://github.com/hyperaho/RPGMaker/tree/master/useless">le fichier paquet du script "raho-useless"</a>, qui ne sert que
+            de démonstration aux assets :
+
+
+<pre><code># Package description
+Package.new(
+	name: 'raho-useless',
+	version: vsn(1, 0, 0),
+	authors: {'Hyperaho' => ''},
+	components: ['script.rb'],
+	assets: {
+		'assets/raho1.png' => 'Graphics/Pictures/raho1.png',
+		'http://full.ouplo.com/f/12/AgkA.png' => 'Graphics/Pictures/raho2.png'
+	},
+	description: 'Epic script for Epic projects'
+)
+</code></pre>
+
+            Ce paquet utilise volontairement une image relative et une image absolue.
+          </p>
+
+          <p class="alert">
+            Attention ! N'oubliez pas que <strong>RMEBuilder</strong> se veut utilisé par un maximum
+            de personne, n'hésitez donc pas à préfixer vos assets pour éviter les collisions !
+            Par exemple, si je propose un menu qui utilise une image, ne pas hésiter à nommer l'image
+            <code class="inline-code">nuki-menu-mon-image.png</code>, pour garantir qu'elle n'écrase aucune image
+            (ou qu'elle ne soit écrasée par personne).
+          </p>
+
+          <h4>Soumettre son paquet comme un patch à RMEBuilder</h4>
+          <p>
+            La liste des paquets est un dépôt Github. Pour y contribuer, il suffit
+            simplement de "<strong>forker</strong>" <a href="https://github.com/RMEx/RMEPackages">ce projet</a>.
+            Pour ajouter un paquet, il suffit de modifier la liste des paquets disponibles dans le fichier <code class="inline-code">packages.rb</code>.
+            En ajoutant une relation <code class="inline-code">"nom du paquet" => "url du package.rb relatif"</code>.
+          </p>
+
+          <p class="alert">
+            Attention, il faut pointer vers un fichier brut. Pas vers une page html, pour Github
+            il faut impérativement utiliser le lien <strong>raw</strong> pour que seul le contenu du fichier soit
+            exporté (et non toute la page HTML).
+          </p>
+
+          <h4>Sur la sémantique des nom de paquet</h4>
+          <p>
+            Il n'y a pas de sémantique formellement fixée. Cependant, pour éviter des collisions de
+            paquets, on propose de préfixer le nom d'un paquet par le pseudonyme de l'auteur.
+            Si le paquet est un incontournable, il est possible de ne pas le préfixer. Cependant, nous nous réservons
+            le droit de refuser une modifications de la liste des paquets, si un paquet en écrase un autre.
+          </p>
+          <h3>Le répertoire customPackages</h3>
+          <p>
+            Dans le répertoire <code class="inline-code">RMEBuilder/customPackages</code>, vous pouvez placer
+            vos scripts en production. Il permet de lire des paquet sans qu'ils soient déjà hebergés. Vous pouvez
+            donc créer des répertoires pour vos scripts en production dans ce répertoire et les travailler comme s'ils
+            étaient déjà publiés. Cela évite de devoir publier d'entrée de jeu un script non terminé. <br />
+            De plus, avec la compilation via <code class="inline-code">build dev</code>, vous pouvez modifier votre
+            code depuis votre éditeur favori (emacs), sans devoir faire sans arrêt des copier-coller à la moindre modification.
+          </p>
+          <h4>Clonage de paquet existant</h4>
+          <p>
+            Pour une raison quelconque, on pourrait avoir envie de modifier un paquet déjà publié par quelqu'un d'autre,
+            dans <strong>RMEBuilder</strong> vous pouvez vous servir de la commande <code class="inline-code">clone nom-du-paquer</code>
+            et le paquet sera copié dans votre répertoire <code class="inline-code">RMEBuilder/customPackages</code>.
+            Un paquet présent dans <code class="inline-code">RMEBuilder/customPackages</code> sera toujours placé au détriment
+            d'un paquet externe dans la phase de construction, donc pour reprendre le paquet initial, il faut le supprimer du répertoire
+            <code class="inline-code">RMEBuilder/customPackages</code> ou alors utiliser la commande <code class="inline-code">reclone nom-du-paquet</code>
+            pour écraser la copie locale par la dernière version.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+          C'en est fini du tour de présentation de <strong>RMEBuilder</strong>, nous espérons qu'il sera réellement
+          utile et qu'il changera les habitudes d'installation des scripts pour les simplifier. Nous espérons aussi que
+          les scripteurs n'hésiteront pas à publier leurs scripts ! Plus on est de fous plus on rit :D
+          <br /><strong>À BIENTÔT</strong>.</p>
+        </div>
+        <a class="forkme" href="https://github.com/RMEx/RMEBuilder"></a>
+	<!-- RATATATATA truand 2 la lère-ga -->
+    </body>
+</html>
