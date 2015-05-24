@@ -15,58 +15,70 @@
             <h2>Package Manager for RPGMaker VXAce</h2>
           </div>
           <p>
-            <strong>RMEBuilder</strong> is a tool for easy installation of some scripts into <strong>RPGMaker VXAce</strong>.
-            It allows to manage dependencies.
-            Morevoer, <strong>RMEBuilder</strong> is a free software, released under
-            <strong>LGPL</strong>.<br />
-            <strong>RMEBuilder</strong> synchronizes itself with the latest versions of scripts to ensure that scripts are up to date.
+            <strong>RMEBuilder</strong> is a tool for installing scripts in <strong>RPGMaker VXAce</strong>.
+            It makes dependency management easier. On top of the comfort it provides, <strong>RMEBuilder</strong>
+            is free software, licensed under <strong>LGPL</strong>.<br />
+            <strong>RMEBuilder</strong> synchronizes via internet with the latest versions of scripts
+            in order to guarantee that they are always up-to-date (and cover all known bugs)!
           </p>
-          <h3>General overview</h3>
+          <h3>Overview</h3>
           <p>
-            With <strong>RMEBuilder</strong>, the scripts could be easily installed. Here is a typical usage-workflow:
+            The idea behind <strong>RMEBuilder</strong> is to allow script users to easily and quickly
+            install scripts. Indeed, <strong>RMEBuilder</strong> is a tiny executable that permits the
+            adding of scripts to one or several projects. Here is an example of a typical method of
+            using <strong>RMEBuilder</strong>.
             <ul>
-              <li>We select a projeect</li>
-              <li>We link scripts to the project (with command line)</li>
-              <li>We run the build-routine</li>
-              <li>We make awesome game with RPGMaker!</li>
+              <li>Select a project</li>
+              <li>Add (with commands) the script list for the project</li>
+              <li>Start the project building routine</li>
+              <li>Start working!</li>
             </ul>
-            It is too possible to update the scripts. And each scripters could
-            add their own work on the package-list.
+            It's also possible to update scripts and, obviously, any script writer can add to the database
+            of available scripts (we hope they do)!
           </p>
-          <h3>Download</h3>
+          <h3>Downloading</h3>
           <p>
-            <strong>RMEBuilder</strong> is verry simple to download. You just
-            have to go on
+            <strong>RMEBuilder</strong> can be obtained really easily, just go to the page
             <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Releases</a>
-            and download  <code class="inline-code">RMEBuilder.zip</code>.
+            and download the file <code class="inline-code">RMEBuilder.zip</code>.
           </p>
 
-          <h3>Installation</h3>
+          <h3>Installing</h3>
           <p class="alert">
-            For RMEBuilder good-working. You have to configure your firewall (to authorize RMEBuilder for file's downloading).
+            In order for <strong>RMEBuilder</strong> to work perfectly, configuring your antivirus/firewall
+            is sometimes necessary so that it lets <strong>RMEBuilder</strong> download files.
           </p>
           <p>
-            For installation, you just have to decompress<code class="inline-code">RMEBuilder.zip</code> where you want ! (Not an RPGMaker project, you can build multiple project with RMEBuilder).
+            Installing <strong>RMEBuilder</strong> is very straightforward, just unzip
+            <code class="inline-code">RMEBuilder.zip</code> in the chosen folder (not necessarily
+            inside a RPGMaker project folder, you can use <strong>RMEBuilder</strong> to build
+            several projects at once.)
           </p>
 
-          <h2>Classical usage</h2>
+          <h2>Utilisation normale</h2>
 
-          <h3>First tour</h3>
+          <h3>Premier lancement</h3>
           <p>
-            To run RMEBuilder, you just have to click on <code class="inline-code">RMEBuilder.bat</code> (it is a shortcut for running the software).
-            A the first launching, you have to choice an RPGMaker VXAce project. You have to choice a valid project. When the project is selected, you can write commands in a prompt.
+            Pour lancer <strong>RMEBuilder</strong>, il suffit de cliquer sur
+            <code class="inline-code">RMEBuilder.bat</code> (qui est un raccourci pour lancer le logiciel).
+            Au premier lancement, le logiciel demandera de choisir le projet cible.
+            Il est impératif de pointer un projet RPGMaker VXace valide.<br />
+            Une fois que le logiciel connait le projet cible, un dispositif de saisie
+            de commande est accessible. L'usage de ce dispositif permet d'entrer des
+            commandes relatives à la construction d'un projet.
           </p>
           <p class="alert">
-           You can change the target when you want. For that, just type the command
-            <code class="inline-code">target</code>. This command return the current target and permit a target changing.
+            A tout moment il est possible de changer de projet cible en entrant la commande
+            <code class="inline-code">target</code>, qui en plus de donner le chemin du projet cible, permet
+            de changer cette cible.
           </p>
           <p>
-            Here is a first launching of <strong>RMEBuilder</strong>.
+            Voici un exemple de premier lancement de <strong>RMEBuilder</strong>.
           </p>
           <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
-          Enlarge !</a>
+          Agrandir !</a>
 
-          <h3>Composition of a Scheme</h3>
+          <h3>Composition d'un schéma</h3>
           <p>
             Une fois qu'un projet est ciblé dans le logiciel, on peut désormais ajouter les
             scripts que l'on veut dans son projet. Pour cela, on se sert de la commande
