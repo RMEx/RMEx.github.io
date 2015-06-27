@@ -14,12 +14,17 @@ function drawCommandList(category) {
 };
 
 function rewriteCommandDisplay() {
+  $('#intro').hide();
+  $('.aCommand').empty();
   cat = $(this).parent().index('#left-pan ul');
   com = $(this).index();
   command = documentation[cat].commands[com];
-  $('#intro').hide();
-  $('.aCommand').empty();
-  $('.aCommand').append('<h1>' + command.name + '</h1>');
+  content = '<span class="categoryName">' + documentation[cat].name + '</span>'
+          + ' → '
+          + '<span class="cmdName">' + command.name + '</span>'
+          + '<h1>' + command.name + '</h1>'
+          + '<p class="desc">' + command.description + '</p>'
+  $('.aCommand').append(content)
 };
 
 $(function() {
