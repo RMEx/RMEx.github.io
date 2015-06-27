@@ -82,3 +82,30 @@ a {
   color: #45B29D;
   text-decoration: none;
 }
+
+#left-pan > h2 {
+    margin: 0;
+    color: #E27A3F;
+    font-size: 120%;
+    margin-top: 12px;
+}
+
+#left-pan > ul {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 32px;
+}
+#left-pan > ul > li {
+    padding: 4px;
+    list-style-type: none;
+    font-size: 80%;
+    background-color:rgb(27,73,99);
+    margin: 2px;
+    color: rgb(25,190,192);
+}
+
+#left-pan > ul > li:hover {
+    color: #fff;
+    cursor: pointer;
+    background-color:rgb(37,83,109);
+}
