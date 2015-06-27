@@ -70,7 +70,7 @@ function makeCommandTitle(command, params) {
 
 function makeParametersTable(command, params) {
   if (params.length == 0) {
-    return ''
+    return '<table class="args"><tbody>' + makeReturnableGen(command) + '</tbody></table>'
   } else {
     data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
     $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
@@ -86,14 +86,19 @@ function makeParametersTable(command, params) {
             + '<td><input class="arginput" type="text" placeholder="valeur à attribuer"></td>'
             + '</tr>';
     });
-    if (command.returnable) {
-      data += '<tr>'
-            + '<td class="title">Générer dans</td>'
-            + '<td><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
-            + '</tr>';
-    };
-    data += '</tbody></table>';
+    data += makeReturnableGen(command) + '</tbody></table>';
     return data;
+  };
+}
+
+function makeReturnableGen(command) {
+  if (command.returnable) {
+    return '<tr>'
+          + '<td class="title">Générer dans</td>'
+          + '<td><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
+          + '</tr>';
+  } else {
+    return '';
   };
 }
 
