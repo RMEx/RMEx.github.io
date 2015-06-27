@@ -109,3 +109,10 @@ a {
     cursor: pointer;
     background-color:rgb(37,83,109);
 }
+
+#filters {
+    width: 100%;
+    padding: 8px;
+    border: 0px solid red;
+    border-radius: 4px;
+}
