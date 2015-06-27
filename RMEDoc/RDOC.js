@@ -1,3 +1,24 @@
+function coersion(isFree, type, data) {
+    if (isFree) {return data;}
+    if (type == 'String') { return '"'+data+'"'}
+    if (type == 'Fixnum') {
+        var result = parseInt(data);
+        if (result == NaN) { return 0;}
+        return result;
+    }
+    if (type == 'Float') {
+        var result = parseFloat(data);
+        if (result == NaN) { return 0.0;}
+        return result;
+    }
+    if (type == 'Array') {
+        var result = data.match(/\[(\w*\,{0,1})*\]/i);
+        if ( result == null ) { return '[]'; }
+        return data;
+    }
+    return data;
+};
+
 function drawCategoryList() {
   $.each(documentation, function(i, category) {
     text = category.name + ' (' + category.commands.length + ')'
