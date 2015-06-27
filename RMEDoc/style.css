@@ -127,10 +127,49 @@ a {
     color: #E27A3F;
 }
 
+
+.aCommand > h2 {
+    margin: 0;
+}
+
 .aCommand > .desc {
     background-color: red;
     text-align: justify;
     padding: 12px;
     border-radius: 12px;
     background-color: #BBEBE8;
+}
+
+.args {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.args td {
+    border: 1px solid silver;
+    padding: 8px;
+}
+.args .title {
+    font-weight: 900;
+    background-color: #f2f2f2;
+}
+
+.center {
+    text-align: center;
+}
+
+.arginput {
+    width: 100%;
+    padding: 4px;
+    border: 0px solid silver;
+}
+
+#buildCmd {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    padding: 8px;
+    border-radius: 24px;
+    border: 0px solid red;
+    color: #fff;
+    background-color: #E27A3F;
 }
