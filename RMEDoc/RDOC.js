@@ -42,40 +42,58 @@ function rewriteCommandDisplay() {
   $('.aCommand').show().empty();
   cat = $(this).parent().index('#left-pan ul');
   com = $(this).index();
-  command = documentation[cat].commands[com];
-  cmdName = command.name
-  params = command.parameters
-  if (params.length != 0) {
-    cmdName += '(' + $.map(params, function(i) {return i.name}).join(', ') + ')';
-  };
-  content = '<span class="categoryName">' + documentation[cat].name
-          + '</span> → <span class="cmdName">' + command.name + '</span>'
-          + '<h1>' + cmdName + '</h1>'
-          + '<p class="desc">' + command.description + '</p>'
-          + parametersTable(params);
+  cat = documentation[cat];
+  com = cat.commands[com];
+  params = com.parameters;
+  content = makeContent(cat, com, params);
   $('.aCommand').append(content);
 };
 
-function parametersTable(params) {
+function makeContent(category, command, params) {
+  data = '<span class="categoryName">' + category.name
+        + '</span> → <span class="cmdName">' + command.name + '</span>'
+        + '<h1>' + makeCommandTitle(command, params) + '</h1>'
+        + '<p class="desc">' + command.description + '</p>'
+        + makeParametersTable(command, params)
+        + '<input id="buildCmd" type="button" value="Generer la commande">'
+        + ' <input id="cleanCmd" type="button" value="Nettoyer la commande">';
+  return data;
+};
+
+function makeCommandTitle(command, params) {
+  data = command.name;
+  if (params.length != 0) {
+    data += '(' + $.map(params, function(i) {return i.name}).join(', ') + ')';
+  };
+  return data;
+}
+
+function makeParametersTable(command, params) {
   if (params.length == 0) {
     return ''
   } else {
-    content = '<h2>Arguments</h2><table class="args"><tbody><tr>';
+    data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
     $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
-      content += '<td class="title">' + v + '</td>';
+      data += '<td class="title">' + v + '</td>';
     });
-    content += '</tr>';
+    data += '</tr>';
     $.each(params, function(i, p) {
-      content += '<tr>'
-              + '<td>' + p.name + '</td>'
-              + '<td>' + p.desc + '</td>'
-              + '<td><code>' + p.type + '</code></td>'
-              + '<td class="center"><input id="polymorph" type="checkbox"></td>'
-              + '<td><input class="arginput" type="text" placeholder="valeur à attribuer"></td>'
-              + '</tr>';
+      data += '<tr>'
+            + '<td>' + p.name + '</td>'
+            + '<td>' + p.desc + '</td>'
+            + '<td><code>' + p.type + '</code></td>'
+            + '<td class="center"><input id="polymorph" type="checkbox"></td>'
+            + '<td><input class="arginput" type="text" placeholder="valeur à attribuer"></td>'
+            + '</tr>';
     });
-    content += '</tbody></table>';
-    return content
+    if (command.returnable) {
+      data += '<tr>'
+            + '<td class="title">Générer dans</td>'
+            + '<td><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
+            + '</tr>';
+    };
+    data += '</tbody></table>';
+    return data;
   };
 }
 
