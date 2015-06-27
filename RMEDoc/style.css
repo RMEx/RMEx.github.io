@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
+  color: #36464F;
+  background-color: #FFF;
+}
+
+#top-pan {
+    position:absolute;
+    top: 0; left: 0; right: 0;
+    background-color: #19BEC0;
+    height: 50px;
+    display: flex;
+}
+#top-pan > h1 {
+    margin: auto;
+    padding-left:32px;
+    width: 100%;
+    text-align:left;
+    font-weight: 900;
+    color: #113F59;
+}
+
+#left-pan {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0px;
+    width: 20%;
+    background-color: #113F59;
+    color: white;
+    padding: 1%;
+    overflow: auto;
+}
+
+#right-pan {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 20%;
+    right: 0;
+    padding: 2%;
+    overflow: auto;
+}
