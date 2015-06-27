@@ -17,7 +17,31 @@ body {
     background-color: #19BEC0;
     height: 50px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: row wrap;
+    justify-content: space-between;
 }
+
+#nav {
+    display: flex;
+    padding-right: 32px;
+}
+
+#nav > * {
+    margin: auto;
+    margin-right: 32px;
+}
+
+#nav > a {
+    color: #BBEBE8;
+    font-weight: 900;
+}
+
+#nav > a:hover {
+    color: #FFF;
+    font-weight: 900;
+}
+
 #top-pan > h1 {
     margin: auto;
     padding-left:32px;
@@ -133,7 +157,6 @@ a {
 }
 
 .aCommand > .desc {
-    background-color: red;
     text-align: justify;
     padding: 12px;
     border-radius: 12px;
