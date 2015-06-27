@@ -11,6 +11,9 @@ function coersion(isFree, type, data) {
         if (result == NaN) { return 0.0;}
         return result;
     }
+    if (type == 'Boolean') {
+        return (data == "true").toString();
+    }
     if (type == 'Array') {
         var result = data.match(/\[(\w*\,{0,1})*\]/i);
         if ( result == null ) { return '[]'; }
