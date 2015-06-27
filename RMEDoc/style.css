@@ -47,4 +47,38 @@ body {
     right: 0;
     padding: 2%;
     overflow: auto;
+    display: flex;
+}
+
+#intro {
+    margin: auto;
+    width: 60%;
+    min-width: 640px;
+}
+
+#intro > div {
+    margin: auto;
+    vertical-align: middle;
+}
+#intro > div > h1 {
+    color: #D54F58;
+    font-weight: 900;
+    font-size: 250%;
+    text-align: center;
+    margin: 0;
+}
+
+#intro > div > h2 {
+    text-align: center;
+    margin: 0;
+    color: #E27A3F;
+}
+
+#intro > div > p {
+    text-align: justify;
+}
+
+a {
+  color: #45B29D;
+  text-decoration: none;
 }
