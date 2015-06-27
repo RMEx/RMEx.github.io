@@ -114,5 +114,23 @@ a {
     width: 100%;
     padding: 8px;
     border: 0px solid red;
-    border-radius: 4px;
+    border-radius: 24px;
+}
+
+.aCommand {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* min-width: 640px; */
+}
+
+.aCommand > h1 {
+    color: #E27A3F;
+}
+
+.aCommand > .desc {
+    background-color: red;
+    text-align: justify;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #BBEBE8;
 }
