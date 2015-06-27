@@ -55,9 +55,8 @@ function makeContent(category_index, command_index) {
         + '<h1>' + makeCommandTitle(command, params) + '</h1>'
         + '<p class="desc">' + command.description + '</p>'
         + makeParametersTable(command, params)
-        + '<input id="buildCmd" type="button" value="Generer la commande" onclick="generateCmd('
-        + category_index + ',' + command_index + ')">'
-        + ' <input id="cleanCmd" type="button" value="Nettoyer les valeurs" onclick="cleanValues()">';
+        + makeGenerateCmdButton(category_index, command_index)
+        + (params.length != 0 ? makeCleanButton() : '');
   return data;
 };
 
@@ -103,12 +102,21 @@ function makeReturnableGen(command) {
   };
 }
 
+function makeGenerateCmdButton(category_index, command_index) {
+  return '<input id="buildCmd" type="button" value="Generer la commande" onclick="generateCmd('
+          + category_index + ',' + command_index + ')">'
+}
+
+function makeCleanButton(returnable) {
+  return '<input id="cleanCmd" type="button" value="Nettoyer les valeurs" onclick="cleanValues()">'
+}
+
 function generateCmd(category_index, command_index) {
   category = documentation[category_index];
   command  = category.commands[command_index];
   params   = command.parameters;
   data = command.name + '(' + params.join(', ') + ')';
-  window.prompt("Copy to clipboard: Ctrl+C, Enter", data);
+  window.prompt("Copier dans le presse-papier : CTR+C suivi de ENTER", data);
 }
 
 function cleanValues() {
