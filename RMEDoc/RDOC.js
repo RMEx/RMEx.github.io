@@ -9,10 +9,20 @@ function drawCategoryList() {
 
 function drawCommandList(category) {
   $.each(category.commands, function(i, command) {
-    $('#left-pan ul:last').append('<li>'+ command.name + '</li>');
+    $('#left-pan ul:last').append('<li>' + command.name + '</li>');
   });
+};
+
+function rewriteCommandDisplay() {
+  cat = $(this).parent().index('#left-pan ul');
+  com = $(this).index();
+  command = documentation[cat].commands[com];
+  $('#intro').hide();
+  $('.aCommand').empty();
+  $('.aCommand').append('<h1>' + command.name + '</h1>');
 };
 
 $(function() {
   drawCategoryList();
+  $('#left-pan li').on('click', rewriteCommandDisplay)
 });
