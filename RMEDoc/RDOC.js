@@ -95,7 +95,7 @@ function makeReturnableGen(command) {
   if (command.returnable) {
     return '<tr>'
           + '<td class="title">Générer dans</td>'
-          + '<td><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
+          + '<td colspan="4"><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
           + '</tr>';
   } else {
     return '';
