@@ -47,4 +47,90 @@ body {
     right: 0;
     padding: 2%;
     overflow: auto;
+    display: flex;
+}
+
+#intro {
+    margin: auto;
+    width: 60%;
+    min-width: 640px;
+}
+
+#intro > div {
+    margin: auto;
+    vertical-align: middle;
+}
+#intro > div > h1 {
+    color: #D54F58;
+    font-weight: 900;
+    font-size: 250%;
+    text-align: center;
+    margin: 0;
+}
+
+#intro > div > h2 {
+    text-align: center;
+    margin: 0;
+    color: #E27A3F;
+}
+
+#intro > div > p {
+    text-align: justify;
+}
+
+a {
+  color: #45B29D;
+  text-decoration: none;
+}
+
+#left-pan > h2 {
+    margin: 0;
+    color: #E27A3F;
+    font-size: 120%;
+    margin-top: 12px;
+}
+
+#left-pan > ul {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 32px;
+}
+#left-pan > ul > li {
+    padding: 4px;
+    list-style-type: none;
+    font-size: 80%;
+    background-color:rgb(27,73,99);
+    margin: 2px;
+    color: rgb(25,190,192);
+}
+
+#left-pan > ul > li:hover {
+    color: #fff;
+    cursor: pointer;
+    background-color:rgb(37,83,109);
+}
+
+#filters {
+    width: 100%;
+    padding: 8px;
+    border: 0px solid red;
+    border-radius: 24px;
+}
+
+.aCommand {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* min-width: 640px; */
+}
+
+.aCommand > h1 {
+    color: #E27A3F;
+}
+
+.aCommand > .desc {
+    background-color: red;
+    text-align: justify;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #BBEBE8;
 }
