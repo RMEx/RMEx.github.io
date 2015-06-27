@@ -42,21 +42,22 @@ function rewriteCommandDisplay() {
   $('.aCommand').show().empty();
   cat = $(this).parent().index('#left-pan ul');
   com = $(this).index();
-  cat = documentation[cat];
-  com = cat.commands[com];
-  params = com.parameters;
-  content = makeContent(cat, com, params);
+  content = makeContent(cat, com);
   $('.aCommand').append(content);
 };
 
-function makeContent(category, command, params) {
+function makeContent(category_index, command_index) {
+  category = documentation[category_index];
+  command  = category.commands[command_index];
+  params   = command.parameters;
   data = '<span class="categoryName">' + category.name
         + '</span> → <span class="cmdName">' + command.name + '</span>'
         + '<h1>' + makeCommandTitle(command, params) + '</h1>'
         + '<p class="desc">' + command.description + '</p>'
         + makeParametersTable(command, params)
-        + '<input id="buildCmd" type="button" value="Generer la commande">'
-        + ' <input id="cleanCmd" type="button" value="Nettoyer la commande">';
+        + '<input id="buildCmd" type="button" value="Generer la commande" onclick="generateCmd('
+        + category_index + ',' + command_index + ')">'
+        + ' <input id="cleanCmd" type="button" value="Nettoyer les valeurs" onclick="cleanValues()">';
   return data;
 };
 
@@ -102,7 +103,19 @@ function makeReturnableGen(command) {
   };
 }
 
+function generateCmd(category_index, command_index) {
+  category = documentation[category_index];
+  command  = category.commands[command_index];
+  params   = command.parameters;
+  data = command.name + '(' + params.join(', ') + ')';
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", data);
+}
+
+function cleanValues() {
+  $('input.arginput').val('');
+}
+
 $(function() {
   drawCategoryList();
-  $('#left-pan li').on('click', rewriteCommandDisplay)
+  $('#left-pan li').on('click', rewriteCommandDisplay);
 });
