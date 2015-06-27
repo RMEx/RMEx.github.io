@@ -146,6 +146,7 @@ a {
     /* width: 60%; */
     /* min-width: 640px; */
     width:100%;
+    display: none;
 }
 
 .aCommand > h1 {

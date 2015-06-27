@@ -15,25 +15,45 @@ function drawCommandList(category) {
 
 function rewriteCommandDisplay() {
   $('#intro').hide();
-  $('.aCommand').empty();
+  $('.aCommand').show().empty();
   cat = $(this).parent().index('#left-pan ul');
   com = $(this).index();
   command = documentation[cat].commands[com];
   cmdName = command.name
-  if (command.parameters.length != 0) {
-    params = $.map(command.parameters, function(i) {return i.name}).join(', ');
-    cmdName += '(' + params + ')';
+  params = command.parameters
+  if (params.length != 0) {
+    cmdName += '(' + $.map(params, function(i) {return i.name}).join(', ') + ')';
   };
-  content = '<span class="categoryName">' + documentation[cat].name + '</span>'
-          + ' → '
-          + '<span class="cmdName">' + command.name + '</span>'
+  content = '<span class="categoryName">' + documentation[cat].name
+          + '</span> → <span class="cmdName">' + command.name + '</span>'
           + '<h1>' + cmdName + '</h1>'
           + '<p class="desc">' + command.description + '</p>'
-  if (command.parameters.length != 0) {
-    content += '<h2>Arguments</h2><table class="args"><tbody></tbody></table>';
-  };
+          + parametersTable(params);
   $('.aCommand').append(content);
 };
+
+function parametersTable(params) {
+  if (params.length == 0) {
+    return ''
+  } else {
+    content = '<h2>Arguments</h2><table class="args"><tbody><tr>';
+    $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
+      content += '<td class="title">' + v + '</td>';
+    });
+    content += '</tr>';
+    $.each(params, function(i, p) {
+      content += '<tr>'
+              + '<td>' + p.name + '</td>'
+              + '<td>' + p.desc + '</td>'
+              + '<td><code>' + p.type + '</code></td>'
+              + '<td class="center"><input id="polymorph" type="checkbox"></td>'
+              + '<td><input class="arginput" type="text" placeholder="valeur à attribuer"></td>'
+              + '</tr>';
+    });
+    content += '</tbody></table>';
+    return content
+  };
+}
 
 $(function() {
   drawCategoryList();
