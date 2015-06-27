@@ -19,12 +19,20 @@ function rewriteCommandDisplay() {
   cat = $(this).parent().index('#left-pan ul');
   com = $(this).index();
   command = documentation[cat].commands[com];
+  cmdName = command.name
+  if (command.parameters.length != 0) {
+    params = $.map(command.parameters, function(i) {return i.name}).join(', ');
+    cmdName += '(' + params + ')';
+  };
   content = '<span class="categoryName">' + documentation[cat].name + '</span>'
           + ' → '
           + '<span class="cmdName">' + command.name + '</span>'
-          + '<h1>' + command.name + '</h1>'
+          + '<h1>' + cmdName + '</h1>'
           + '<p class="desc">' + command.description + '</p>'
-  $('.aCommand').append(content)
+  if (command.parameters.length != 0) {
+    content += '<h2>Arguments</h2><table class="args"><tbody></tbody></table>';
+  };
+  $('.aCommand').append(content);
 };
 
 $(function() {
