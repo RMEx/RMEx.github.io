@@ -1,3 +1,27 @@
+function ponderate_doc() {
+    var res = [];
+    var callbackA = function (i, e) {
+        jQuery.each (e.commands, function(j, c) {
+
+            var params = jQuery.map (c.parameters, function (p) {
+                return p.name;
+            });
+            
+            var reslt  = [
+                c.name,
+                e.name, params.join('-'),
+                e.desc, c.description
+            ];
+            
+            res.push({cat_id:i, comm_id:j, data:reslt});
+        });
+    };
+    jQuery.each(documentation, callbackA);
+    return res;
+};
+
+var pondered = ponderate_doc();
+
 function coersion(isFree, type, data) {
     if (type == 'String') { return '"'+data+'"'}
     if (type == 'Fixnum') {
@@ -30,8 +54,8 @@ function coersion(isFree, type, data) {
 function drawCategoryList() {
   $.each(documentation, function(i, category) {
     text = category.name + ' (' + category.commands.length + ')'
-    $('#left-pan').append('<h2>' + text + '</h2>');
-    $('#left-pan').append('<ul></ul>');
+    $('#left-pan-content').append('<h2>' + text + '</h2>');
+    $('#left-pan-content').append('<ul></ul>');
       drawCommandList(category, i);
   });
 };
@@ -43,6 +67,19 @@ function drawCommandList(category, id_cat) {
                                       + command.name + '</li>');
     });
 };
+
+
+function drawCommandListWithGrep(list) {
+    $.each(list, function(i, data) {
+        var category = documentation[data.cat_id];
+        var command = category.commands[data.comm_id];
+        $('#left-pan ul:last').append('<li data-cat-id="'
+                                      + data.cat_id+'" data-command-id="'
+                                      + data.comm_id+'">'
+                                      + command.name + '</li>');
+    });
+};
+
 
 function rewriteCommandDisplay() {
     $('#intro').hide();
@@ -148,7 +185,50 @@ function cleanValues() {
   $('input.arginput').val('');
 }
 
+function mapWithWord(source, word) {
+    var reg = new RegExp(word, 'i');
+    var len = source.data.length; 
+    var det = jQuery.map (source.data, function(e, i) {
+        var check = reg.test(e);
+        var r = (check ? ((word == e) ? 2 : 1) : 0) * (len - i); 
+        return r;
+    }).reduce(function(a, b){return a + b});
+    var category = documentation[source.cat_id];
+    var command = category.commands[source.comm_id];
+    return {pl:command.name,
+            cat_id:source.cat_id,
+            comm_id:source.comm_id,
+            data:det
+           };
+}
+
+function onSearchChange() {
+    var val = $(this).val();
+    if (val == '') {
+        $('#left-pan-content').empty();
+        drawCategoryList();
+        $('#left-pan li').on('click', rewriteCommandDisplay);
+    } else {
+        $('#left-pan-content').empty();
+        var pond = jQuery.map (pondered, function(e){
+            var result = mapWithWord(e, val);
+            return result;
+        }).sort(function(a, b) {
+            return b.data - a.data;
+        });
+        var filtered = jQuery.grep (pond, function(e){
+            return e.data > 0;
+        });
+        $('#left-pan-content').append('<h2>Résultats ('
+                                      +filtered.length+')</h2>');
+        $('#left-pan-content').append('<ul></ul>');
+        drawCommandListWithGrep(filtered);
+        $('#left-pan li').on('click', rewriteCommandDisplay);
+    }
+}
+
 $(function() {
-  drawCategoryList();
-  $('#left-pan li').on('click', rewriteCommandDisplay);
+    drawCategoryList();
+    $('#left-pan li').on('click', rewriteCommandDisplay);
+    $('#filters').on('keyup', onSearchChange);
 });
