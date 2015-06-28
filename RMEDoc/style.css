@@ -199,6 +199,7 @@ a {
     border: 0px solid red;
     color: #fff;
     background-color: #E27A3F;
+    cursor: pointer;
 }
 
 .categoryName {
@@ -217,4 +218,5 @@ a {
     border: 0px solid red;
     color: #fff;
     background-color: silver;
+    cursor: pointer;
 }
