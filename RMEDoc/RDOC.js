@@ -23,6 +23,7 @@ function ponderate_doc() {
 var pondered = ponderate_doc();
 
 function coersion(isFree, type, data) {
+    if (isFree && data != '') return data;
     if (type == 'String') { return '"'+data+'"'}
     if (type == 'Fixnum') {
         if (isFree && data == '') return 0;
