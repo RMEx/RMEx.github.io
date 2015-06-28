@@ -1,24 +1,29 @@
 function coersion(isFree, type, data) {
-    if (isFree) {return data;}
     if (type == 'String') { return '"'+data+'"'}
     if (type == 'Fixnum') {
+        if (isFree && data == '') return 0;
         var result = parseInt(data);
-        if (result == NaN) { return 0;}
+        if (isNaN(result)) { return 0;}
         return result;
     }
     if (type == 'Float') {
+        if (isFree && data == '') return 0.0;
         var result = parseFloat(data);
-        if (result == NaN) { return 0.0;}
+        if (isNaN(result)) { return 0.0;}
         return result;
     }
     if (type == 'Boolean') {
+        if (isFree && data == '') return false;
         return (data == "true").toString();
     }
     if (type == 'Array') {
-        var result = data.match(/\[(\w*\,{0,1})*\]/i);
+        if (isFree && data == '') return '[]';
+        if (isFree) return data;
+        var result = data.match(/^\[(\w*\,{0,1})*\]$/i);
         if ( result == null ) { return '[]'; }
         return data;
     }
+    if (isFree && data == '') return 'nil';
     return data;
 };
 
@@ -68,34 +73,39 @@ function makeCommandTitle(command, params) {
   return data;
 }
 
+function parse_name(command) {
+    return (command.name[0] == '*') ? 'DEF_'+command.name.substring(1) : command.name; 
+}
+
 function makeParametersTable(command, params) {
-  if (params.length == 0) {
-    return '<table class="args"><tbody>' + makeReturnableGen(command) + '</tbody></table>'
-  } else {
-    data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
-    $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
-      data += '<td class="title">' + v + '</td>';
-    });
-    data += '</tr>';
-    $.each(params, function(i, p) {
-      data += '<tr>'
-            + '<td>' + p.name + '</td>'
-            + '<td>' + p.desc + '</td>'
-            + '<td><code>' + p.type + '</code></td>'
-            + '<td class="center"><input id="polymorph" type="checkbox"></td>'
-            + '<td><input class="arginput" type="text" placeholder="valeur à attribuer"></td>'
-            + '</tr>';
-    });
-    data += makeReturnableGen(command) + '</tbody></table>';
-    return data;
-  };
+    if (params.length == 0) {
+        return '<table class="args"><tbody>' + makeReturnableGen(command) + '</tbody></table>'
+    } else {
+        data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
+        $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
+            data += '<td class="title">' + v + '</td>';
+        });
+        data += '</tr>';
+        $.each(params, function(i, p) {  
+            data += '<tr>'
+                + '<td>' + p.name + '</td>'
+                + '<td>' + p.desc + '</td>'
+                + '<td><code>' + p.type + '</code></td>'
+                + '<td class="center"> <input id="polymorph_'+parse_name(p)+'" type="checkbox"'
+                + ((p.type != 'String') ? 'checked=checked':'') + '></td>'
+                + '<td><input id="arg_'+ parse_name(p) +'" class="arginput" type="text" placeholder="valeur à attribuer"></td>'
+                + '</tr>';
+        });
+        data += makeReturnableGen(command) + '</tbody></table>';
+        return data;
+    };
 }
 
 function makeReturnableGen(command) {
   if (command.returnable) {
     return '<tr>'
           + '<td class="title">Générer dans</td>'
-          + '<td colspan="4"><input class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
+          + '<td colspan="4"><input id="return_in" class="arginput" type="text" placeholder="Variable dans laquelle générer la commande"></td>'
           + '</tr>';
   } else {
     return '';
@@ -112,11 +122,23 @@ function makeCleanButton(returnable) {
 }
 
 function generateCmd(category_index, command_index) {
-  category = documentation[category_index];
-  command  = category.commands[command_index];
-  params   = command.parameters;
-  data = command.name + '(' + params.join(', ') + ')';
-  window.prompt("Copier dans le presse-papier : CTR+C suivi de ENTER", data);
+    var category = documentation[category_index];
+    var command  = category.commands[command_index];
+    var params   = jQuery.map(command.parameters, function(e) {
+        var id = '#arg_' + parse_name(e);
+        var poly  = '#polymorph_' + parse_name(e);
+        return {type: e.type, name: e.name, value: $(id).val(), poly:$(poly).prop('checked')};
+    });
+    var params_filter = jQuery.grep(params, function(e) {
+        return !(e.name[0] == '*' && e.value == ''); 
+    });
+    var parsed_params = jQuery.map(params_filter, function(e) {
+        return coersion(e.poly, e.type, e.value);
+    });
+    var data = command.name + ( (parsed_params.length > 0) ? '(' + parsed_params.join(', ') + ')' : '');
+    var vdata = $('#return_in').val();
+    var p_data = ((command.returnable && vdata != '') ? vdata + ' = ' : '') + data
+    window.prompt("Copier dans le presse-papier : CTR+C suivi de ENTER", p_data);
 }
 
 function cleanValues() {
