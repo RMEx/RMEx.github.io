@@ -32,23 +32,25 @@ function drawCategoryList() {
     text = category.name + ' (' + category.commands.length + ')'
     $('#left-pan').append('<h2>' + text + '</h2>');
     $('#left-pan').append('<ul></ul>');
-    drawCommandList(category);
+      drawCommandList(category, i);
   });
 };
 
-function drawCommandList(category) {
-  $.each(category.commands, function(i, command) {
-    $('#left-pan ul:last').append('<li>' + command.name + '</li>');
-  });
+function drawCommandList(category, id_cat) {
+    $.each(category.commands, function(i, command) {
+        $('#left-pan ul:last').append('<li data-cat-id="'
+                                      +id_cat+'" data-command-id="'+i+'">'
+                                      + command.name + '</li>');
+    });
 };
 
 function rewriteCommandDisplay() {
-  $('#intro').hide();
-  $('.aCommand').show().empty();
-  cat = $(this).parent().index('#left-pan ul');
-  com = $(this).index();
-  content = makeContent(cat, com);
-  $('.aCommand').append(content);
+    $('#intro').hide();
+    $('.aCommand').show().empty();
+    cat = $(this).data('cat-id');
+    com = $(this).data('command-id');
+    content = makeContent(cat, com);
+    $('.aCommand').append(content);
 };
 
 function makeContent(category_index, command_index) {
@@ -93,7 +95,8 @@ function makeParametersTable(command, params) {
                 + '<td><code>' + p.type + '</code></td>'
                 + '<td class="center"> <input id="polymorph_'+parse_name(p)+'" type="checkbox"'
                 + ((p.type != 'String') ? 'checked=checked':'') + '></td>'
-                + '<td><input id="arg_'+ parse_name(p) +'" class="arginput" type="text" placeholder="valeur à attribuer"></td>'
+                + '<td><input id="arg_'+ parse_name(p)
+                + '" class="arginput" type="text" placeholder="valeur à attribuer"></td>'
                 + '</tr>';
         });
         data += makeReturnableGen(command) + '</tbody></table>';
