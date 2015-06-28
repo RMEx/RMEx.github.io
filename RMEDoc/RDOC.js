@@ -90,18 +90,27 @@ function rewriteCommandDisplay() {
     $('.aCommand').append(content);
 };
 
+
+function rewriteCommandDisplayStartUp(x, y) {
+    $('#intro').hide();
+    $('.aCommand').show().empty();
+    content = makeContent(x, y);
+    $('.aCommand').append(content);
+};
+
 function makeContent(category_index, command_index) {
-  category = documentation[category_index];
-  command  = category.commands[command_index];
-  params   = command.parameters;
-  data = '<span class="categoryName">' + category.name
+    category = documentation[category_index];
+    command  = category.commands[command_index];
+    params   = command.parameters;
+    window.location.hash = category_index + '.' + command_index + '.' + command.name;
+    data = '<span class="categoryName">' + category.name
         + '</span> → <span class="cmdName">' + command.name + '</span>'
         + '<h1>' + makeCommandTitle(command, params) + '</h1>'
         + '<p class="desc">' + command.description + '</p>'
         + makeParametersTable(command, params)
         + makeGenerateCmdButton(category_index, command_index)
         + (params.length != 0 ? makeCleanButton() : '');
-  return data;
+    return data;
 };
 
 function makeCommandTitle(command, params) {
@@ -229,6 +238,12 @@ function onSearchChange() {
 
 $(function() {
     drawCategoryList();
+    var hashs = window.location.hash.substring(1).split('.');
+    if (hashs.length == 3) {
+        var cat = parseInt(hashs[0]);
+        var com = parseInt(hashs[1]);
+        rewriteCommandDisplayStartUp(cat, com);
+    }
     $('#left-pan li').on('click', rewriteCommandDisplay);
     $('#filters').on('keyup', onSearchChange);
 });
