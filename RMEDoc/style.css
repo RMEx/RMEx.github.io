@@ -22,6 +22,10 @@ body {
     justify-content: space-between;
 }
 
+#top-pan img {
+  margin: 5px;
+}
+
 #nav {
     display: flex;
     padding-right: 32px;
@@ -44,7 +48,7 @@ body {
 
 #top-pan > h1 {
     margin: auto;
-    padding-left:32px;
+    padding-left: 32px;
     width: 100%;
     text-align:left;
     font-weight: 900;
@@ -53,14 +57,26 @@ body {
 
 #left-pan {
     position: absolute;
-    top: 50px;
+    top: 120px;
     bottom: 0;
     left: 0px;
     width: 300px;
     background-color: #113F59;
     color: white;
     padding: 1%;
-    overflow: auto;
+    padding-top: 0;
+    overflow-y: scroll;
+}
+
+#left-pan-filter {
+    background-color: #113F59;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    height: 70px;
+    width: 300px;
+    padding: 1%;
+    overflow-y: scroll;
 }
 
 #right-pan {
@@ -134,11 +150,17 @@ a {
     background-color:rgb(37,83,109);
 }
 
+#left-pan-content > ul > li.current {
+    color: #E27A3F;
+}
+
 #filters {
     width: 100%;
     padding: 8px;
     border: 0px solid red;
     border-radius: 24px;
+    background-color: rgb(27,73,99);
+    color: rgb(25,190,192);
 }
 
 .aCommand {

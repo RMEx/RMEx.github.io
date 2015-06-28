@@ -83,20 +83,18 @@ function drawCommandListWithGrep(list) {
 
 
 function rewriteCommandDisplay() {
-    $('#intro').hide();
-    $('.aCommand').show().empty();
     var cat = $(this).data('cat-id');
     var com = $(this).data('command-id');
-    var content = makeContent(cat, com);
-    $('.aCommand').append(content);
+    $('.current').removeClass();
+    $(this).addClass('current');
+    rewriteCommandDisplayStartUp(cat, com);
 };
 
 
 function rewriteCommandDisplayStartUp(x, y) {
-    $('#intro').hide();
-    $('.aCommand').show().empty();
     var content = makeContent(x, y);
-    $('.aCommand').append(content);
+    $('#intro').hide();
+    $('.aCommand').show().empty().append(content);
 };
 
 function makeContent(category_index, command_index) {
