@@ -1,22 +1,22 @@
 function ponderate_doc() {
     var res = [];
     var callbackA = function (i, e) {
-        jQuery.each (e.commands, function(j, c) {
+        $.each (e.commands, function(j, c) {
 
-            var params = jQuery.map (c.parameters, function (p) {
+            var params = $.map (c.parameters, function (p) {
                 return p.name;
             });
-            
+
             var reslt  = [
                 c.name,
                 e.name, params.join('-'),
                 e.desc, c.description
             ];
-            
+
             res.push({cat_id:i, comm_id:j, data:reslt});
         });
     };
-    jQuery.each(documentation, callbackA);
+    $.each(documentation, callbackA);
     return res;
 };
 
@@ -54,7 +54,7 @@ function coersion(isFree, type, data) {
 
 function drawCategoryList() {
   $.each(documentation, function(i, category) {
-    text = category.name + ' (' + category.commands.length + ')'
+    var text = category.name + ' (' + category.commands.length + ')'
     $('#left-pan-content').append('<h2>' + text + '</h2>');
     $('#left-pan-content').append('<ul></ul>');
       drawCommandList(category, i);
@@ -64,7 +64,7 @@ function drawCategoryList() {
 function drawCommandList(category, id_cat) {
     $.each(category.commands, function(i, command) {
         $('#left-pan ul:last').append('<li data-cat-id="'
-                                      +id_cat+'" data-command-id="'+i+'">'
+                                      + id_cat + '" data-command-id="' + i + '">'
                                       + command.name + '</li>');
     });
 };
@@ -85,9 +85,9 @@ function drawCommandListWithGrep(list) {
 function rewriteCommandDisplay() {
     $('#intro').hide();
     $('.aCommand').show().empty();
-    cat = $(this).data('cat-id');
-    com = $(this).data('command-id');
-    content = makeContent(cat, com);
+    var cat = $(this).data('cat-id');
+    var com = $(this).data('command-id');
+    var content = makeContent(cat, com);
     $('.aCommand').append(content);
 };
 
@@ -95,27 +95,27 @@ function rewriteCommandDisplay() {
 function rewriteCommandDisplayStartUp(x, y) {
     $('#intro').hide();
     $('.aCommand').show().empty();
-    content = makeContent(x, y);
+    var content = makeContent(x, y);
     $('.aCommand').append(content);
 };
 
 function makeContent(category_index, command_index) {
-    category = documentation[category_index];
-    command  = category.commands[command_index];
-    params   = command.parameters;
-    window.location.hash = category_index + '.' + command_index + '.' + command.name;
-    data = '<span class="categoryName">' + category.name
-        + '</span> → <span class="cmdName">' + command.name + '</span>'
-        + '<h1>' + makeCommandTitle(command, params) + '</h1>'
-        + '<p class="desc">' + command.description + '</p>'
-        + makeParametersTable(command, params)
-        + makeGenerateCmdButton(category_index, command_index)
-        + (params.length != 0 ? makeCleanButton() : '');
+    var category = documentation[category_index];
+    var command  = category.commands[command_index];
+    var params   = command.parameters;
+    window.location.hash = command.name;
+    var data = '<span class="categoryName">' + category.name
+             + '</span> → <span class="cmdName">' + command.name + '</span>'
+             + '<h1>' + makeCommandTitle(command, params) + '</h1>'
+             + '<p class="desc">' + command.description + '</p>'
+             + makeParametersTable(command, params)
+             + makeGenerateCmdButton(category_index, command_index)
+             + (params.length != 0 ? makeCleanButton() : '');
     return data;
 };
 
 function makeCommandTitle(command, params) {
-  data = command.name;
+  var data = command.name;
   if (params.length != 0) {
     data += '(' + $.map(params, function(i) {return i.name}).join(', ') + ')';
   };
@@ -123,19 +123,19 @@ function makeCommandTitle(command, params) {
 }
 
 function parse_name(command) {
-    return (command.name[0] == '*') ? 'DEF_'+command.name.substring(1) : command.name; 
+    return (command.name[0] == '*') ? 'DEF_'+command.name.substring(1) : command.name;
 }
 
 function makeParametersTable(command, params) {
     if (params.length == 0) {
         return '<table class="args"><tbody>' + makeReturnableGen(command) + '</tbody></table>'
     } else {
-        data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
+        var data = '<h2>Arguments</h2><table class="args"><tbody><tr>';
         $.each(['Argument', 'Description', 'Type', 'Libre?', 'Valeur'], function(i, v) {
             data += '<td class="title">' + v + '</td>';
         });
         data += '</tr>';
-        $.each(params, function(i, p) {  
+        $.each(params, function(i, p) {
             data += '<tr>'
                 + '<td>' + p.name + '</td>'
                 + '<td>' + p.desc + '</td>'
@@ -174,15 +174,15 @@ function makeCleanButton(returnable) {
 function generateCmd(category_index, command_index) {
     var category = documentation[category_index];
     var command  = category.commands[command_index];
-    var params   = jQuery.map(command.parameters, function(e) {
+    var params   = $.map(command.parameters, function(e) {
         var id = '#arg_' + parse_name(e);
         var poly  = '#polymorph_' + parse_name(e);
         return {type: e.type, name: e.name, value: $(id).val(), poly:$(poly).prop('checked')};
     });
-    var params_filter = jQuery.grep(params, function(e) {
-        return !(e.name[0] == '*' && e.value == ''); 
+    var params_filter = $.grep(params, function(e) {
+        return !(e.name[0] == '*' && e.value == '');
     });
-    var parsed_params = jQuery.map(params_filter, function(e) {
+    var parsed_params = $.map(params_filter, function(e) {
         return coersion(e.poly, e.type, e.value);
     });
     var data = command.name + ( (parsed_params.length > 0) ? '(' + parsed_params.join(', ') + ')' : '');
@@ -197,10 +197,10 @@ function cleanValues() {
 
 function mapWithWord(source, word) {
     var reg = new RegExp(word, 'i');
-    var len = source.data.length; 
-    var det = jQuery.map (source.data, function(e, i) {
+    var len = source.data.length;
+    var det = $.map (source.data, function(e, i) {
         var check = reg.test(e);
-        var r = (check ? ((word == e) ? 2 : 1) : 0) * (len - i); 
+        var r = (check ? ((word == e) ? 2 : 1) : 0) * (len - i);
         return r;
     }).reduce(function(a, b){return a + b});
     var category = documentation[source.cat_id];
@@ -220,13 +220,13 @@ function onSearchChange() {
         $('#left-pan li').on('click', rewriteCommandDisplay);
     } else {
         $('#left-pan-content').empty();
-        var pond = jQuery.map (pondered, function(e){
+        var pond = $.map (pondered, function(e){
             var result = mapWithWord(e, val);
             return result;
         }).sort(function(a, b) {
             return b.data - a.data;
         });
-        var filtered = jQuery.grep (pond, function(e){
+        var filtered = $.grep (pond, function(e){
             return e.data > 0;
         });
         $('#left-pan-content').append('<h2>Résultats ('
@@ -239,12 +239,13 @@ function onSearchChange() {
 
 $(function() {
     drawCategoryList();
-    var hashs = window.location.hash.substring(1).split('.');
-    if (hashs.length == 3) {
-        var cat = parseInt(hashs[0]);
-        var com = parseInt(hashs[1]);
-        rewriteCommandDisplayStartUp(cat, com);
-    }
+    var cmd = window.location.hash.substring(1);
+    cmd = $.grep(pondered, function(e) { return e.data[0] == cmd });
+    if (cmd.length > 0) {
+       var cat = cmd[0].cat_id;
+       var com = cmd[0].comm_id;
+       rewriteCommandDisplayStartUp(cat, com);
+    };
     $('#left-pan li').on('click', rewriteCommandDisplay);
     $('#filters').on('keyup', onSearchChange);
 });
