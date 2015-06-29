@@ -20,7 +20,7 @@ body {
     flex-direction: row;
     flex-wrap: row wrap;
     justify-content: space-between;
-    
+
 }
 
 #top-pan img {
@@ -247,4 +247,18 @@ a {
     color: #fff;
     background-color: silver;
     cursor: pointer;
+}
+
+.sample {
+  width: 65%;
+  font-size: 80%;
+  margin: 12px;
+  margin-bottom: 32px;
+}
+
+.sample > h3 {
+  font-size: 150%;
+  margin: 0;
+  color: #E27A3F;
+  font-weight: 900;
 }

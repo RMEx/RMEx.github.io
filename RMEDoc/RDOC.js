@@ -1,3 +1,10 @@
+function find_sample(command) {
+  return $.grep(rme_samples, function(e) {
+    var commands = e.commands;
+    return $.inArray(command, commands) >= 0;
+  });
+}
+
 function ponderate_doc() {
     var res = [];
     var callbackA = function (i, e) {
@@ -109,6 +116,15 @@ function makeContent(category_index, command_index) {
              + makeParametersTable(command, params)
              + makeGenerateCmdButton(category_index, command_index)
              + (params.length != 0 ? makeCleanButton() : '');
+    var samples = find_sample(command.name);
+    if (samples.length > 0) {
+      data += '<h2>Exemples</h2>';
+      $.each(samples, function(i, sample) {
+        data += '<div class="sample"><h3>' + sample.title +'</h3>';
+        data += sample.html;
+        data += '</div>';
+      });
+    }
     return data;
 };
 
