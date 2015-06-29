@@ -246,4 +246,8 @@ $(function() {
     };
     $('#left-pan li').on('click', rewriteCommandDisplay);
     $('#filters').on('keyup', onSearchChange);
+    $("#left-pan-filter").stickOnScroll({
+        viewport: $("#left-pan")
+        // setParentOnStick: true
+    });
 });

@@ -20,6 +20,7 @@ body {
     flex-direction: row;
     flex-wrap: row wrap;
     justify-content: space-between;
+    
 }
 
 #top-pan img {
@@ -57,27 +58,37 @@ body {
 
 #left-pan {
     position: absolute;
-    top: 120px;
+    top: 50px;
     bottom: 0;
     left: 0px;
     width: 300px;
     background-color: #113F59;
     color: white;
-    padding: 1%;
+    /* padding: 1%; */
     padding-top: 0;
     overflow-y: scroll;
 }
 
 #left-pan-filter {
     background-color: #113F59;
-    position: absolute;
-    left: 0px;
-    top: 50px;
-    height: 70px;
-    width: 300px;
     padding: 1%;
-    overflow-y: scroll;
+    padding-right: 2%;
+    width: 284px;
+    margin-top: 12px;
+    /* margin-bottom: 12px; */
+    text-align: center;
 }
+
+
+#filters {
+    width: 100%;
+    padding: 8px;
+    border: 0px solid red;
+    border-radius: 24px;
+    background-color: rgb(27,73,99);
+    color: rgb(25,190,192);
+}
+
 
 #right-pan {
     position: absolute;
@@ -114,13 +125,17 @@ body {
     color: #E27A3F;
 }
 
-#intro > div > p {
+p {
     text-align: justify;
 }
 
 a {
   color: #45B29D;
   text-decoration: none;
+}
+
+#left-pan-content {
+    margin-top: 12px;
 }
 
 #left-pan-content > h2 {
@@ -152,15 +167,6 @@ a {
 
 #left-pan-content > ul > li.current {
     color: #E27A3F;
-}
-
-#filters {
-    width: 100%;
-    padding: 8px;
-    border: 0px solid red;
-    border-radius: 24px;
-    background-color: rgb(27,73,99);
-    color: rgb(25,190,192);
 }
 
 .aCommand {
