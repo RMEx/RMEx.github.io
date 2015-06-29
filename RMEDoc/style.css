@@ -249,8 +249,16 @@ a {
     cursor: pointer;
 }
 
+.samples {
+  display: flex;
+}
+
+.samples > div:first-child{
+  width: 70%;
+}
+
 .sample {
-  width: 65%;
+  width: 95%;
   font-size: 80%;
   margin: 12px;
   margin-bottom: 32px;
@@ -261,4 +269,8 @@ a {
   margin: 0;
   color: #E27A3F;
   font-weight: 900;
+}
+
+#toc-samples li {
+  margin-top: 12px;
 }

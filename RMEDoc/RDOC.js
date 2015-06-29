@@ -118,12 +118,20 @@ function makeContent(category_index, command_index) {
              + (params.length != 0 ? makeCleanButton() : '');
     var samples = find_sample(command.name);
     if (samples.length > 0) {
-      data += '<h2>Exemples</h2>';
+      data += '<div class="samples">';
+      data += '<div>';
       $.each(samples, function(i, sample) {
-        data += '<div class="sample"><h3>' + sample.title +'</h3>';
+        data += '<div class="sample"><h3 id="sample-'+i+'">' + sample.title +'</h3>';
         data += sample.html;
+        data += '<a href="#toc-samples">Remonter</a>'
         data += '</div>';
       });
+      data += '</div><div id="toc-samples"><h2>Exemples</h2><ol>';
+      $.each(samples, function(i, sample) {
+        data += '<li><a href="#sample-'+i+'">'+sample.title+'</a></li>'
+      });
+      data += '</ol></div>'
+      data += '</div>';
     }
     return data;
 };
