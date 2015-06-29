@@ -97,11 +97,22 @@ function rewriteCommandDisplay() {
     rewriteCommandDisplayStartUp(cat, com);
 };
 
+function rewriteCommandDisplayWithId() {
+    var cmd = $(this).data('cmd');
+    cmd = $.grep(pondered, function(e) { return e.data[0] == cmd });
+    if (cmd.length > 0) {
+       var cat = cmd[0].cat_id;
+       var com = cmd[0].comm_id;
+       rewriteCommandDisplayStartUp(cat, com);
+     }
+};
+
 
 function rewriteCommandDisplayStartUp(x, y) {
     var content = makeContent(x, y);
     $('#intro').hide();
     $('.aCommand').show().empty().append(content);
+    $('.btn_go').on('click', rewriteCommandDisplayWithId);
 };
 
 function makeContent(category_index, command_index) {
@@ -133,6 +144,7 @@ function makeContent(category_index, command_index) {
       data += '</ol></div>'
       data += '</div>';
     }
+    $('.btn_go').on('click', rewriteCommandDisplayWithId);
     return data;
 };
 
@@ -273,6 +285,7 @@ $(function() {
     };
     $('#left-pan li').on('click', rewriteCommandDisplay);
     $('#filters').on('keyup', onSearchChange);
+    $('.btn_go').on('click', rewriteCommandDisplayWithId);
     $("#left-pan-filter").stickOnScroll({
         viewport: $("#left-pan")
         // setParentOnStick: true
