@@ -204,6 +204,15 @@ a {
     border: 1px solid silver;
     padding: 8px;
 }
+
+.args td:first-child, .args td:nth-child(5) {
+    width: 20%;
+}
+
+.args td:nth-child(3), .args td:nth-child(4) {
+    width: 5%;
+}
+
 .args .title {
     font-weight: 900;
     background-color: #f2f2f2;
