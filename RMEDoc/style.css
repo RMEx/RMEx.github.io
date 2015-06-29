@@ -284,3 +284,8 @@ a {
 #toc-samples li {
   margin-top: 12px;
 }
+
+.event_code *{
+  white-space: nowrap;
+  overflow-x:scroll;
+}
