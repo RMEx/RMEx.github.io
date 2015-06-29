@@ -267,6 +267,9 @@ $(function() {
        var cat = cmd[0].cat_id;
        var com = cmd[0].comm_id;
        rewriteCommandDisplayStartUp(cat, com);
+    }else{
+      $('#loading-ef').hide();
+      $('#intro-ef').show();
     };
     $('#left-pan li').on('click', rewriteCommandDisplay);
     $('#filters').on('keyup', onSearchChange);
