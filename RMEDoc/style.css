@@ -66,6 +66,7 @@ body {
     color: white;
     /* padding: 1%; */
     padding-top: 0;
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
