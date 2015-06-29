@@ -285,7 +285,10 @@ a {
   margin-top: 12px;
 }
 
+
+.event_code {
+    overflow-x:auto;
+}
 .event_code *{
   white-space: nowrap;
-  overflow-x:scroll;
 }
