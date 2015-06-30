@@ -55,28 +55,26 @@
             several projects at once.)
           </p>
 
-          <h2>Utilisation normale</h2>
+          <h2>Normal use</h2>
 
-          <h3>Premier lancement</h3>
+          <h3>First launch</h3>
           <p>
-            Pour lancer <strong>RMEBuilder</strong>, il suffit de cliquer sur
-            <code class="inline-code">RMEBuilder.bat</code> (qui est un raccourci pour lancer le logiciel).
-            Au premier lancement, le logiciel demandera de choisir le projet cible.
-            Il est impératif de pointer un projet RPGMaker VXace valide.<br />
-            Une fois que le logiciel connait le projet cible, un dispositif de saisie
-            de commande est accessible. L'usage de ce dispositif permet d'entrer des
-            commandes relatives à la construction d'un projet.
+            To launch <strong>RMEBuilder</strong>, you simply need to click on
+            <code class="inline-code">RMEBuilder.bat</code> (which is a shortcut to launch the software).
+            Upon starting for the first time, the software will ask you to choose the target project.
+            Choosing a valid RPGMaker VXAce project is mandatory.<br />
+            Once the software knows the target project, a command line device can be accessed.
+            Using it allows you to enter commands relating to project building.
           </p>
           <p class="alert">
-            A tout moment il est possible de changer de projet cible en entrant la commande
-            <code class="inline-code">target</code>, qui en plus de donner le chemin du projet cible, permet
-            de changer cette cible.
+            You can switch target projects at any time by entering the <code class="inline-code">target</code>
+            command, which, on top of giving you the current target project path, allows you to change it.
           </p>
           <p>
-            Voici un exemple de premier lancement de <strong>RMEBuilder</strong>.
+            Here is an example of an <strong>RMEBuilder</strong> first launch.
           </p>
           <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <h3>Composition d'un schéma</h3>
           <p>
@@ -98,11 +96,11 @@
           </p>
 
           <a class="image" href="images/3.gif"><img src="images/3.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <p class="alert">
-            Il est évident que si <strong>RMEBuilder</strong> est fermé, à sa réouverture,
-            l'ensemble des scripts présents dans le schéma seront toujours visibles !
+            It is obvious that if <strong>RMEBuilder</strong> is closed, all scripts in the
+            schema will be saved and will still be visible when you reopen it!
           </p>
 
           <h4>Moduler le schéma</h4>
@@ -117,16 +115,16 @@
           </p>
 
           <a class="image" href="images/4.gif"><img src="images/4.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <p class="alert">
-            Ahah dans le <strong>Gif</strong>, j'ai fait une faute de frappe (mouwe aha) :D désolé !
+            Haha I made a typo in the <strong>Gif</strong> (mouwe instead of mouse, aha) :D sorry!
           </p>
 
-          <h3>Compiler votre projet</h3>
-          <p>Une fois que votre schéma est, de votre point de vue, complet, vous pouvez compiler votre projet.
-          Une compilation dans <strong>RMEBuilder</strong> consiste à télécharger les scripts présent dans le schéma
-          et de les assembler dans le fichier <code class="inline-code">Scripts.rvdata2</code>.</p>
+          <h3>Compiling the project</h3>
+          <p>Once your schema is, in your opinion, complete, you can compile your project.
+          Compiling in <strong>RMEBuilder</strong> consists in downloading the scripts currently in the schema
+          and assembling them in the <code class="inline-code">Scripts.rvdata2</code> file.</p>
 
           <p class="alert">
             Attention, avant de "compiler" votre projet, il est impératif de fermer votre projet
@@ -174,22 +172,22 @@
             pour que la mise à jour soit prise en compte !
           </p>
 
-          <h4>Gestion des dépendances</h4>
-          <p>Si un paquet dépend d'un autre paquet, il n'est pas nécéssaire de le référencer dans le schéma.
-          Au moment de la construction (à l'appel de la commande <code class="inline-code">build</code> ou <code class="inline-code">build dev</code>), le logiciel
-          téléchargera les dépendances et les installera. Si un paquet à des dépendances et qu'il est supprimé du schéma,
-          si la dépendance n'est pas explicitement (<code class="inline-code">add</code>) membre du schéma, elle sera aussi supprimée.</p>
+          <h4>Dependency management</h4>
+          <p>If a package depends on another package, it's not necessary to reference the latter in the schema.
+          When building the project (with the use of the <code class="inline-code">build</code> or <code class="inline-code">build dev</code>
+          commands), the application will download and install all dependencies. If a package with dependencies is removed from the schema,
+          the dependencies will be removed as well (unless they were explicitly added (<code class="inline-code">add</code>) to the schema).</p>
 
-          <h3>Compilation temporaire</h3>
-          <p>Le problème de <strong>RMEBuilder</strong>, c'est qu'il faut le fermer à chaque ajout/modification.
-          Pour palier à ce problème, il est possible de faire une compilation temporaire. En utilisant la commande
-          <code class="inline-code">build dev</code>, vous créez un fichier temporaire, qui, au lancement du projet lira les scripts depuis
-          l'endroit où ils sont téléchargés. L'avantage de cette méthode est qu'il ne faut utiliser le <code class="inline-code">build dev</code> (et
-          donc fermer le projet RPGMaker) que quand on <strong>ajoute</strong> ou <strong>supprime</strong> un fichier dans le schéma.
-          Chaque mise à jour de paquet n'implique pas de "rebuilder" le projet. C'est très pratique pour les scripts qui sont souvent mis à jour.
+          <h3>Temporary compilation</h3>
+          <p>The problem with <strong>RMEBuilder</strong> is that you have to close it after every modification.
+          In order to address this, it is possible to compile temporarily. Using the <code class="inline-code">build dev</code>
+          command will make a temporary file that, when the project is launched, will read the scripts from where they were downloaded.
+          This allows you to only use <code class="inline-code">build dev</code> (and so, close the RPGMaker project) when
+          <strong>adding</strong> or <strong>removing</strong> a file in the schema.
+          Package updates don't force a project rebuild. It's very convenient for often-updated scripts.
           <br />
-          Par contre, avant de diffuser votre projet, il est impératif de faire un <code class="inline-code">build</code> pour ne plus faire dépendre le jeu
-          des fichiers temporaires!</p>
+          However, before distributing your project, executing a <code class="inline-code">build</code> is mandatory so that your project does not
+          rely on temporary files anymore!</p>
 
           <h3>Mettre à jour RMEBuilder</h3>
           <p>
