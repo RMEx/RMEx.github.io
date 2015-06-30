@@ -211,3 +211,7 @@ h4 {
 .title-container > h2 {
   color: #FFF;
 }
+
+span.important {
+  color: #23907B;;
+}
