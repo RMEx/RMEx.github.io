@@ -83,49 +83,85 @@
             Zoom in !
           </a>
 
-          <h3>Composition d'un schéma</h3>
+          <h3>Composing a schema</h3>
           <p>
-            Une fois qu'un projet est ciblé dans le logiciel, on peut désormais ajouter les
-            scripts que l'on veut dans son projet. Pour cela, on se sert de la commande
-            <code class="inline-code">show</code> qui affiche la liste des paquets disponibles sur le net.
+            Once the project to build is set, you will be able to tell the scripts
+            that you want to add in your project.
+          </p>
+          <p>
+            Firstly, you may want to know the available packets. To list them, use the
+            command <code class="inline-code">show</code>, it displays the list of
+            available packets.
             <br />
-            La commande <code class="inline-code">about nom-du-paquet</code> permet de renvoyer les informations
-            (description, auteurs etc) relative à un paquet.
+            The command
+            <code class="inline-code">about
+              <span class="important">packet-name</span>
+            </code>
+            displays informations related to the given packet such as the description
+            or the authors.
           </p>
           <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in !</a>
 
           <p>
-            Pour ajouter des paquets au projet, il suffit d'utiliser la commande
-            <code class="inline-code">add nom-du-paquet</code>. Cette commande aura pour effet d'ajouter un paquet
-            dans la liste des paquets à intégrer au projet.<br />
-            La commande <code class="inline-code">schema</code> permet d'afficher la liste des paquets à installer.
+            The command
+            <code class="inline-code">
+              add <span class="important">packet-name</span>
+            </code>
+            allows you to add a packet to the packets' list that will be integrated to
+            the project.
           </p>
 
+          <p>
+            If you want to see all the packets that you have selected, you can use
+            the command <code class="inline-code">schema</code>. It displays all
+            the packets that have to be installed.
+          </p>
+
+          <p>
+            Now, let's see these two commands in action !
+          </p>
           <a class="image" href="images/3.gif"><img src="images/3.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in !</a>
 
           <p class="alert">
-            Il est évident que si <strong>RMEBuilder</strong> est fermé, à sa réouverture,
-            l'ensemble des scripts présents dans le schéma seront toujours visibles !
+            Obviously, if <strong>RMEBuilder</strong> is closed, the set of scripts
+            which are defined in the schema will still be visible when you re-open it ;).
           </p>
 
-          <h4>Moduler le schéma</h4>
+          <h4>Schema's handling</h4>
           <p>
-            Par défaut, lors de la phase de "compilation", que nous verrons un peu plus tard,
-            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre :
+            By default, during the "compilation phase" (we will speak of it a bit later),
+            scripts are installed according to the order they were added.
+            <!--As some of you may know, the installation order is important as far as conflicts or unresolved dependencies can emerge-->
+            It is obviously possible to change this order:
             <ul>
-              <li><code class="inline-code">remove nom-du-paquet</code> : supprime le paquet de la liste des paquets à compiler</li>
-              <li><code class="inline-code">move nom-du-paquet up</code> : monte le paquet référencé d'une place</li>
-              <li><code class="inline-code">move nom-du-paquet down</code> : descend le paquet référencé d'une place</li>
+              <li>
+                <code class="inline-code">
+                  remove <span class="important">packet-name</span>
+                </code>
+                : removes the given packet from the packets' list to compile
+              </li>
+              <li>
+                <code class="inline-code">
+                  move <span class="important">packet-name</span> up
+                </code>
+                : moves the given packet up
+              </li>
+              <li>
+                <code class="inline-code">
+                  move <span class="important">packet-name</span> down
+                </code>
+                : moves the given packet down
+              </li>
             </ul>
           </p>
 
           <a class="image" href="images/4.gif"><img src="images/4.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in !</a>
 
           <p class="alert">
-            Ahah dans le <strong>Gif</strong>, j'ai fait une faute de frappe (mouwe aha) :D désolé !
+            Ahah I made a mistake in this <strong>Gif</strong>: mouwe instead of move ! Sorry !
           </p>
 
           <h3>Compiler votre projet</h3>
