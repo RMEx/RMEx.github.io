@@ -1,0 +1,162 @@
+<meta charset="utf-8" />
+
+<h1>RME, le script qui vous donne des super pouvoirs</h1>
+Depuis plusieurs mois, Joke et moi (accompagné par une collection de gens super) on travaille sur l'élaboration
+d'un script destiné à rendre la conception de systèmes personnalisés avec RPGMaker VXAce beaucoup plus aisés.<br />
+Une des idées initiale étant de rendre VXace au moins aussi flexible que 2003 pour l'évent-making.<br />
+Le projet n'est pas encore terminé, cependant le script est réellement utilisable et nous avons besoin de vous
+pour le tester et suggérer des ajouts! C'est pour ce faire qu'aujourd'hui, nous rédigeons une première news officielle!
+En espérant que vous apprécierez ce projet ! Kiss love (L).
+
+<h2>La genèse: l'Event Extender</h2>
+Initialement, ce projet portait le nom de Event Extender et n'était développé que par Grim. Lorsqu'il a été
+question d'offrir plus de fonctionnalités, nous avons décidé de rédiger ce script à plusieurs et de le renommer
+en RME, pour RPGMaker Extender :) (c'est grave modeste comme nom).<br />
+Comme pour son grand frère, RME ressemble un peu à l'Event-Language de Roys et Avygeil. Cependant, nous avons
+essayé d'écrire encore plus de commandes pour le rendre encore plus flexible.
+
+<h2>Principe général</h2>
+Le script propose plusieurs axes:
+<ul>
+  <li><strong>RME.Sdk</strong>: une collection d'outils pour le scripteur</li>
+  <li><strong>RME.EvEx</strong>: une extension syntaxique pour les variables, et une collection de commandes pour l'event-making</li>
+  <li><strong>RME.Database</strong>: un système de base de données où vous contrôlez la structure, absolument extensible, via Excell!</li>
+</ul>
+
+Dans l'idée générale, RME fonctionne au moyen d'appel de scripts. En général, les commandes propose une
+des implémentations les plus rapides disponibles et les commandes sont très faciles à utiliser !
+
+<h2>Une documentation riche</h2>
+Comme RME est un très gros projet, sa documentation est obligatoirement fournie. Dans l'optique d'être accessible, même pour
+les plus fainéants, nous avons passé du temps à écrire un e-book expliquant les rouages de RME.<br />
+<a href="https://github.com/RMEx/RME/wiki">Lien vers le livre</a><br />
+En plus d'expliquer les mécaniques complexe, depuis peu, nous avons conçu un système de documentation permettant de filtrer les commandes
+et même de les générer pour directement les copier/coller dans votre projet.
+
+<h3>Un peu plus sur la documentation</h3>
+
+<h4>Une application dynamique</h4>
+<img src="http://image.noelshack.com/fichiers/2015/27/1435749280-rmex.png" /><br />
+La documentation de RME est devenue une application web à part entière. <br />
+Plus claire et simple que la version précédente, il n'y a plus besoin de jongler entre plusieurs pages, le panneau de gauche permet de parcourir toutes les commandes, classées par catégories, tandis que le panneau de droite affiche leur description.
+
+<h4>Filtres de recherche</h4>
+<img src="http://image.noelshack.com/fichiers/2015/27/1435750629-rmex.png" /><br />
+Vous pouvez maintenant filtrer les commandes en tapant ce que vous voulez dans le champs filtres.<br />
+Les résultats sont basés sur le nom des commandes, mais aussi leur description. Ce qui permet donc de retrouver des commandes sans connaître leur nom. (comme l'exemple ci-dessus)
+
+<h4>Générateur de commandes</h4>
+Cette nouvelle application permet de générer les commandes, tout comme le faisait <a href="http://www.biloucorp.com/lextend-editor--26">l'ExtendEditor</a> pour <a href="http://www.biloucorp.com/levent-extender--3">l'EventExtender</a>.<br />
+Il suffit de remplir les champs des arguments et cliquer sur "Générer commande" pour obtenir la commande à copier/coller dans les insertions de script dans RPG Maker.
+
+<h5>Le champ libre (case à cocher/décocher)</h5>
+Si "Libre?" est décoché, le générateur vérifie le type de valeur que vous donnez (Fixnum, String, Array...). Par exemple, il ajoute automatiquement les guillemets pour les arguments de type "texte" (String).
+<br />
+Cocher "Libre?" désactivera la vérification du type, ce qui permet de donner une variable ou bien une autre commande RME en valeur d'argument. (Par exemple, "V[2]")
+<br />
+<img src="http://image.noelshack.com/fichiers/2015/27/1435751292-rmex2.png" />
+<br />
+<img src="http://image.noelshack.com/fichiers/2015/27/1435751292-rmex3.png" /><br />
+
+<h5>"Générer dans"</h5>
+Certaines commandes proposent un champs "Générer dans".
+Ce sont les commandes qui retournent des valeurs. Il suffit de spécifier dans quelle variable vous récupérez la valeur.
+<br />
+Ce champs n'est pas obligatoire.<br />
+
+<img src="http://image.noelshack.com/fichiers/2015/27/1435751571-rmex4.png" />
+<br />
+<img src="http://image.noelshack.com/fichiers/2015/27/1435751571-rmex5.png" /><br />
+
+<h4>Exemples associés</h4>
+
+Certaines commandes ont maintenant des exemples associés, nous les rajouterons au fur et à mesure.
+<br />
+Chaque exemple montre un cas d'utilisation d'une ou plusieurs commandes RME. Vous pouvez cliquer sur les commandes utilisées pour basculer sur leur description respective !
+
+<img src="http://image.noelshack.com/fichiers/2015/27/1435754121-rmex6.png" />
+
+<h2>Une communautée</h2>
+Même si nous tâchons de faire du support sur un maximum de forums, il existe une communauté : <a href="http://rmex.forumactif.org">lien vers la communauté</a>, pour
+les gens désieurs d'avoir un support précis sur RME. L'enjeu de cette communauté n'est pas de voler l'activité des autres mais vraiment de se focaliser sur l'usage de RME.<br />
+N'hésitez pas à venir, actuellement elle est un peu léthargique :)
+
+<h3>Les réalisations des membres</h3>
+La communauté est ouverte depuis quelques mois, certains membres ont déjà eu l'occasion de montrer leur talent. Voici quelques créations entièrement réalisée avec
+RME sans aucun scripts complémentaires. Juste en événement ! Vous pouvez retrouver toutes ces créations <a href="http://rmex.forumactif.org/f6-vos-realisations">à cette adresse</a> (Le code événement est souvent donné !).
+
+<h4>Event suivant un chemin (par Hellper et Joke)</h4>
+<img src="http://image.noelshack.com/fichiers/2015/19/1430951282-tourne3.gif" />
+
+<h4>Coffre de stockage avec capacité maximum (par Ergo proxy)</h4>
+<img src="http://img110.xooimage.com/files/c/9/9/customstorage-4b4a445.gif" />
+
+<h4>Rapide prototype de portal-like (par Ergo proxy)</h4>
+<img src="http://img110.xooimage.com/files/5/7/b/portal2-4b50751.gif" />
+
+<h4>Brouillard de guerre (gris) (par Ergo proxy)</h4>
+<img src="http://img110.xooimage.com/files/0/f/c/warfog-4b4f78b.gif" />
+
+<h4>Système de quêtes dynamique (et avec une base de données) (par Ergo proxy)</h4>
+<img src="http://img110.xooimage.com/files/a/d/d/questcustom-4b5d0be.gif" />
+
+<h4>Le shmup du pauvre (par Ergo proxy)</h4>
+<img src="http://img110.xooimage.com/files/4/c/b/savethequeeniiii-4b52279.gif" />
+
+<h4>Tic-Tac-Toe (Morpion) (par Nuki)</h4>
+<img src="http://full.ouplo.com/f/16/EaAn.gif" />
+
+<p>
+Je vous invite à vous rendre sur le forum car chacun de ses exemples est généralement accompagné du code pour le créer.
+</p>
+
+<h2>Projets connexes</h2>
+<ul>
+  <li><strong>RMEBuilder</strong>: déjà relâté dans une news, RMEBuilder permet de partager simplement ses scripts, mais rend aussi l'installation des scripts extrèmement simple ! RME n'a jamais été aussi facile à installer</li>
+  <li><strong>RMECloud</strong>: ce projet est encore en construction. Il s'agit de proposer une alternative open-source à Steam pour distribuer ses jeux, délocaliser ses sauvegardes et proposer des services simple à mettre en place (comme par exemple de la mise à jours en continu des jeux ou offrir des systèmes de score en lignes etc.) Le projet est en développement sur le github RMEx, et le code est évidemment libre. Le tout écrit en Erlang et en Ruby.</li>
+</ul>
+
+<h2>Un projet communautaire</h2>
+Le projet est maintennu par beaucoup de personnes, voici une liste que l'on voudrais la plus exhaustive possible :
+<ul>
+  <li><strong>Grim</strong>: code base, event extender, RMECloud</li>
+  <li><strong>Hyperaho</strong>: SDK, event extender, RMEBuilder</li>
+  <li><strong>mspawn</strong>: RMEBuilder</li>
+  <li><strong>Hiino</strong>: debug, traduction</li>
+  <li><strong>Al rind</strong>: traduction, aides conceptuelles</li>
+  <li><strong>Spyrojojo</strong>: event extender</li>
+  <li><strong>Zeus81</strong>: aide impressionnante et toujours rapide et sympa</li>
+  <li><strong>Celestiel</strong>: improvement, beta test </li>
+  <li><strong>FalconPilot</strong>: improvement, event extender</li>
+  <li><strong>Ulis</strong>: improvement, beta test, traduction, corrections</li>
+  <li><strong>Ibiky</strong>: improvement</li>
+  <li><strong>Hellper</strong>:improvement </li>
+  <li><strong>Dylan/Waikiki</strong>: improvement</li>
+  <li><strong>Joke</strong>: Chef de projet</li>
+  <li><strong>Nuki</strong>: Chef de projet 2</li>
+</ul>
+
+Sans compter ParadoxII, Avygeil, Roys, Amalrich von Monesser, Verehn, Fabien pour leurs aides, inspiration, sympathie.
+J'espère n'avoir oublié personne, si c'est le cas ... sorie :D
+
+<h2>Projets utilisant RME</h2>
+Très jeune, il n'existe pas encore de jeux utilisant RME. Cependant, on peut noter :
+<ul>
+  <li><strong>Fall 2</strong>: un mini jeu par Spyrojojo</li>
+  <li><strong><a href="http://sarcia.co">Sarcia</a></strong>: l'excellent Sarcia, grand nom de cette communauté</li>
+</ul>
+
+
+<h2>Liens</h2>
+<ul>
+  <li><a href="http://rmex.github.io">Index de RME</a></li>
+  <li><a href="http://rmex.forumactif.org">Communauté RME</a></li>
+  <li><a href="http://github.com/RMEx/RME/wiki">Wiki/Livre pour tout apprendre sur comment utiliser RME au mieux</a></li>
+  <li><a href="http://rmex.github.io/RMEDoc">La documentation illustrées des commandes RME</a></li>
+</ul>
+
+<h2>Le mot de la fin</h2>
+On espère de tout coeur que vous n'hésiterez pas à utiliser ce script, pour vos projets et aussi pour faire des prototypes ! C'est toujours amusant de faire de l'event-making pour le fun ! <br />
+Un des points essentiels de ce script est qu'il ne rend pas la tâche "trop facile", vous devrez encore réfléchir, cependant, RME vous aide à aller bien plus loin et toujours de manière générique et réutilisable ! <br />
+N'hésitez pas à venir tester le projet <strong>qui est devenu facile à installer et à mettre à jour</strong>, nous remonter des bogues et nous montrer vos systèmes !<br /><br />
+ENJOY ! 
