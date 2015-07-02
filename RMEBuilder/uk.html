@@ -60,10 +60,10 @@
           <h3>First launch</h3>
           <p>
             To launch <strong>RMEBuilder</strong>, you simply need to click on
-            <code class="inline-code">RMEBuilder.bat</code> (which is a shortcut to launch the software).
-            Upon starting for the first time, the software will ask you to choose the target project.
+            <code class="inline-code">RMEBuilder.bat</code> (which is a shortcut to launch the application).
+            Upon starting for the first time, the application will ask you to choose the target project.
             Choosing a valid RPGMaker VXAce project is mandatory.<br />
-            Once the software knows the target project, a command line device can be accessed.
+            Once the application knows the target project, a command line device can be accessed.
             Using it allows you to enter commands relating to project building.
           </p>
           <p class="alert">
@@ -76,23 +76,23 @@
           <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
           Zoom in!</a>
 
-          <h3>Composition d'un schéma</h3>
+          <h3>Composition of a schema</h3>
           <p>
-            Une fois qu'un projet est ciblé dans le logiciel, on peut désormais ajouter les
-            scripts que l'on veut dans son projet. Pour cela, on se sert de la commande
-            <code class="inline-code">show</code> qui affiche la liste des paquets disponibles sur le net.
+            After a project has been chosen in the application, you can now add the scripts you want
+            to it. To do so, use the <code class="inline-code">show</code> command that display the list
+            of available packages on the net.
             <br />
-            La commande <code class="inline-code">about nom-du-paquet</code> permet de renvoyer les informations
-            (description, auteurs etc) relative à un paquet.
+            The <code class="inline-code">about package-name</code> returns informations (description, authors,
+            etc.) about a package.
           </p>
           <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <p>
-            Pour ajouter des paquets au projet, il suffit d'utiliser la commande
-            <code class="inline-code">add nom-du-paquet</code>. Cette commande aura pour effet d'ajouter un paquet
-            dans la liste des paquets à intégrer au projet.<br />
-            La commande <code class="inline-code">schema</code> permet d'afficher la liste des paquets à installer.
+            In order to add packages to a project, simply use the
+            <code class="inline-code">add package-name</code> command. This command's effect is to add
+            a package to the list of packages to be added to the project.<br />
+            The <code class="inline-code">schema</code> command displays the list of packages to be installed.
           </p>
 
           <a class="image" href="images/3.gif"><img src="images/3.gif" alt="launch RME!"/>
@@ -103,14 +103,14 @@
             schema will be saved and will still be visible when you reopen it!
           </p>
 
-          <h4>Moduler le schéma</h4>
+          <h4>Adjusting the schema</h4>
           <p>
-            Par défaut, lors de la phase de "compilation", que nous verrons un peu plus tard,
-            les scripts sont installés par ordre d'ajout. Il est donc évidemment possible de changer cet ordre :
+            By default, during the compilation phase (which we will see later), 
+            scripts are installed in the order in which they were added. Obviously, you can change this order:
             <ul>
-              <li><code class="inline-code">remove nom-du-paquet</code> : supprime le paquet de la liste des paquets à compiler</li>
-              <li><code class="inline-code">move nom-du-paquet up</code> : monte le paquet référencé d'une place</li>
-              <li><code class="inline-code">move nom-du-paquet down</code> : descend le paquet référencé d'une place</li>
+              <li><code class="inline-code">remove package-name</code> : removes the package from the list</li>
+              <li><code class="inline-code">move package-name up</code> : moves the package up one place</li>
+              <li><code class="inline-code">move package-name down</code> : moves the package down one place</li>
             </ul>
           </p>
 
@@ -118,7 +118,7 @@
           Zoom in!</a>
 
           <p class="alert">
-            Haha I made a typo in the <strong>Gif</strong> (mouwe instead of mouse, aha) :D sorry!
+            Haha I made a typo in the <strong>gif</strong> (mouwe instead of mouse, aha) :D sorry!
           </p>
 
           <h3>Compiling the project</h3>
@@ -127,12 +127,12 @@
           and assembling them in the <code class="inline-code">Scripts.rvdata2</code> file.</p>
 
           <p class="alert">
-            Attention, avant de "compiler" votre projet, il est impératif de fermer votre projet
-            dans RPGMaker. Vous pourrez l'ouvrir après, une fois la compilation exécutée.
+            Beware, before compiling your project, it is mandatory that you close it in RPGMaker. 
+            You will be able to open it back later, once the compilation is done.
           </p>
 
           <a class="image" href="images/5.gif"><img src="images/5.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <p>
             Au lancement de la commande <code class="inline-code">build</code>, le logiciel va télécharger les scripts s'il ne les connait
