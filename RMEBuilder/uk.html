@@ -38,8 +38,8 @@
           </p>
           <h3>Downloading</h3>
           <p>
-            <strong>RMEBuilder</strong> can be obtained really easily, just go to the page
-            <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Releases</a>
+            <strong>RMEBuilder</strong> can be obtained really easily, just go to the
+            <a href="https://github.com/RMEx/RMEBuilder/releases/latest">Releases</a> page
             and download the file <code class="inline-code">RMEBuilder.zip</code>.
           </p>
 
@@ -51,7 +51,7 @@
           <p>
             Installing <strong>RMEBuilder</strong> is very straightforward, just unzip
             <code class="inline-code">RMEBuilder.zip</code> in the chosen folder (not necessarily
-            inside a RPGMaker project folder, you can use <strong>RMEBuilder</strong> to build
+            inside an RPGMaker project folder, you can use <strong>RMEBuilder</strong> to build
             several projects at once).
           </p>
 
@@ -64,10 +64,10 @@
             Upon starting for the first time, the application will ask you to choose the target project.
             Choosing a valid RPGMaker VXAce project is mandatory.<br />
             Once the application knows the target project, a command line device can be accessed.
-            Using it allows you to enter commands relating to project building.
+            With it, you can enter commands relating to project building.
           </p>
           <p class="alert">
-            You can switch target projects at any time by entering the <code class="inline-code">target</code>
+            You can change your target project at any time by entering the <code class="inline-code">target</code>
             command, which, on top of giving you the current target project path, allows you to change it.
           </p>
           <p>
@@ -78,11 +78,11 @@
 
           <h3>Composition of a schema</h3>
           <p>
-            After a project has been chosen in the application, you can now add the scripts you want
-            to it. To do so, use the <code class="inline-code">show</code> command that display the list
-            of available packages on the net.
+            After a project has been chosen in the application, you can now add to it any scripts you want.
+            To do so, you can use the <code class="inline-code">show</code> command which displays the list
+            of available packages on the internet.
             <br />
-            The <code class="inline-code">about package-name</code> returns informations (description, authors,
+            The <code class="inline-code">about package-name</code> returns information (description, authors,
             etc.) about a package.
           </p>
           <a class="image" href="images/2.gif"><img src="images/2.gif" alt="launch RME!"/>
@@ -100,12 +100,12 @@
 
           <p class="alert">
             It is obvious that if <strong>RMEBuilder</strong> is closed, all scripts in the
-            schema will be saved and will still be visible when you reopen it!
+            schema will be saved and will still be there when you reopen it!
           </p>
 
-          <h4>Adjusting the schema</h4>
+          <h4>Modifying the schema</h4>
           <p>
-            By default, during the compilation phase (which we will see later), 
+            By default, during the compilation step (which we will see later), 
             scripts are installed in the order in which they were added. Obviously, you can change this order:
             <ul>
               <li><code class="inline-code">remove package-name</code>: removes the package from the list</li>
@@ -122,12 +122,12 @@
           </p>
 
           <h3>Compiling the project</h3>
-          <p>Once your schema is, in your opinion, complete, you can compile your project.
+          <p>Once your schema is complete, you can compile your project.
           Compiling in <strong>RMEBuilder</strong> consists in downloading the scripts currently in the schema
           and assembling them in the <code class="inline-code">Scripts.rvdata2</code> file.</p>
 
           <p class="alert">
-            Beware, before compiling your project, it is mandatory that you close it in RPGMaker. 
+            Be aware that, before compiling your project, it is mandatory that you close it in RPGMaker. 
             You will be able to open it back later, once the compilation is done.
           </p>
 
@@ -150,7 +150,7 @@
           to merge assets. It happens when packages contain external files (images or DLLs for example).
           Upon first compiling the project with a script that requires assets, it is recommended to answer
           Yes (Y). However, after the script has been added once, you do not need to merge its assets again.
-          What if you edited the images, merging the assets again would override all your edits, it would be bad!</p>
+          If you edit the images, merging the assets again will override all your edits, it would be bad!</p>
 
           <p class="alert">
             At any time, you can fetch a package's assets with the
@@ -179,15 +179,15 @@
           <p>If a package depends on another package, it's not necessary to reference the latter in the schema.
           When building the project (with the use of the <code class="inline-code">build</code> or <code class="inline-code">build dev</code>
           commands), the application will download and install all dependencies. If a package with dependencies is removed from the schema,
-          the dependencies will be removed as well (unless they were explicitly added (<code class="inline-code">add</code>) to the schema).</p>
+          the dependencies will be removed as well (unless they were explicitly added (with <code class="inline-code">add</code>) to the schema).</p>
 
           <h3>Temporary compilation</h3>
-          <p>The problem with <strong>RMEBuilder</strong> is that you have to close it after every modification.
+          <p>The problem with <strong>RMEBuilder</strong> is that you have to close it after every edit.
           In order to address this, it is possible to compile temporarily. Using the <code class="inline-code">build dev</code>
           command will make a temporary file that, when the project is launched, will read the scripts from where they were downloaded.
           This allows you to only use <code class="inline-code">build dev</code> (and so, close the RPGMaker project) when
           <strong>adding</strong> or <strong>removing</strong> a file in the schema.
-          Package updates don't force a project rebuild. It's very convenient for often-updated scripts.
+          Package updates don't force a project rebuild. It's very convenient for oft-updated scripts.
           <br />
           However, before distributing your project, executing a <code class="inline-code">build</code> is mandatory so that your project does not
           rely on temporary files anymore!</p>
@@ -204,8 +204,8 @@
           <h3>Before publishing your project</h3>
           <p>
             Once your project is complete, you can remove the <code class="inline-code">build_schema.rb</code>
-            file (don't forget to <code class="inline-code">build</code>, in order to make sure all your scripts
-            are installed) from the project folder. Now all that's left is to encrypt (or not) your project
+            file from the project folder (don't forget to <code class="inline-code">build</code>, in order to
+            make sure all your scripts are installed). Now all that's left is to encrypt (or not) your project
             and diffuse it!
           </p>
 
