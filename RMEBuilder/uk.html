@@ -52,7 +52,7 @@
             Installing <strong>RMEBuilder</strong> is very straightforward, just unzip
             <code class="inline-code">RMEBuilder.zip</code> in the chosen folder (not necessarily
             inside a RPGMaker project folder, you can use <strong>RMEBuilder</strong> to build
-            several projects at once.)
+            several projects at once).
           </p>
 
           <h2>Normal use</h2>
@@ -71,7 +71,7 @@
             command, which, on top of giving you the current target project path, allows you to change it.
           </p>
           <p>
-            Here is an example of an <strong>RMEBuilder</strong> first launch.
+            Here is an example of <strong>RMEBuilder</strong>'s first launch.
           </p>
           <a class="image" href="images/1.gif"><img src="images/1.gif" alt="launch RME!"/>
           Zoom in!</a>
@@ -108,9 +108,9 @@
             By default, during the compilation phase (which we will see later), 
             scripts are installed in the order in which they were added. Obviously, you can change this order:
             <ul>
-              <li><code class="inline-code">remove package-name</code> : removes the package from the list</li>
-              <li><code class="inline-code">move package-name up</code> : moves the package up one place</li>
-              <li><code class="inline-code">move package-name down</code> : moves the package down one place</li>
+              <li><code class="inline-code">remove package-name</code>: removes the package from the list</li>
+              <li><code class="inline-code">move package-name up</code>: moves the package up one place</li>
+              <li><code class="inline-code">move package-name down</code>: moves the package down one place</li>
             </ul>
           </p>
 
@@ -135,41 +135,44 @@
           Zoom in!</a>
 
           <p>
-            Au lancement de la commande <code class="inline-code">build</code>, le logiciel va télécharger les scripts s'il ne les connait
-            pas, et va créer un fichier <code class="inline-code">Scripts.rvdata2</code> qu'il va fusionner avec les scripts déjà existants.
-            Votre projet peut donc déjà contenir des scripts pré-installés. <br />
-            À chaque fois que la commande <code class="inline-code">build</code> est appelée, les éléments construits par <strong>RMEBuilder</strong>
-            sont purgés. Donc si vous retirez, après une compilation, un élément de votre schéma (via la commande <code class="inline-code">remove</code>)
-            et que vous recompilez (<code class="inline-code">build</code>), les mises à jour auront bien été prises en compte.
+            When the <code class="inline-code">build</code> command is used, the application will download all
+            unknown scripts, and will then make a <code class="inline-code">Scripts.rvdata2</code> file, which it
+            will merge with the other scripts. 
+            This means your project can have pre-installed scripts without problem. <br />
+            Each time the <code class="inline-code">build</code> command is called, elements built by
+            <strong>RMEBuilder</strong> are purged. Thus, if you decide to remove an element from your schema
+            after compiling (with the <code class="inline-code">remove</code> command), then it will be taken
+            into account upon recompiling (<code class="inline-code">build</code>).
           </p>
 
-          <h4>Gestion des Assets</h4>
-          <p>Il arrive parfois que lors de la compilation de votre projet <strong>RMEBuilder</strong> vous demande si vous désirez fusionner
-          les assets. C'est lorsque le paquet propose des fichiers externes (des images ou une DLL par exemple). Lors de la première compilation
-          avec un script requierrant des assets, il est généralement conseillé de répondre oui (Y). Par contre, lorsque le script a déjà été
-          ajouté, il n'est pas nécéssaire de re-fusionner les assets. Imaginez par exemple qu'il s'agit d'image que vous avez déjà modifié, il serait
-          dommage de perdre ces modifications!</p>
+          <h4>Managing assets</h4>
+          <p>When compiling your project, <strong>RMEBuilder</strong> sometimes will ask you if you want
+          to merge assets. It happens when packages contain external files (images or DLLs for example).
+          Upon first compiling the project with a script that requires assets, it is recommended to answer
+          Yes (Y). However, after the script has been added once, you do not need to merge its assets again.
+          What if you edited the images, merging the assets again would override all your edits, it would be bad!</p>
 
           <p class="alert">
-            A tout moment, vous pouvez récupérer les assets d'un paquet en utilisant la commande
-            <code class="inline-code">get assets of package-name</code>.
+            At any time, you can fetch a package's assets with the
+            <code class="inline-code">get assets of package-name</code> command.
           </p>
 
-          <h4>Mettre à jour des paquets</h4>
+          <h4>Updating packages</h4>
           <p>
-            Au lancement de <strong>RMEBuilder</strong>, ce dernier vérifie s'il existe des mises à jour pour vos scripts installés.
-            C'est très pratique pour rester au courant des ajouts dans les scripts :
+            Upon launch, <strong>RMEBuilder</strong> will check if updates for your installed scripts exist.
+            It's very useful for keeping up-to-date with script versions and edits:
           </p>
           <a class="image" href="images/6.gif"><img src="images/6.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <p>
-            Vous pouvez aussi vous servir de la commande <code class="inline-code">check updates</code>, qui vérifiera si des paquets ne sont pas à jour.
+            You can also use the <code class="inline-code">check updates</code> command,
+            which will check if packages are up-to-date.
           </p>
 
           <p class="alert">
-            Une fois qu'un paquet est mis à jour, il est impératif de refaire un <code class="inline-code">build</code>, donc en fermant le projet RPGMaker
-            pour que la mise à jour soit prise en compte !
+            Once a package is updated, running the <code class="inline-code">build</code> command
+            (after closing the RPGMaker project) is mandatory in order to take the update into account!
           </p>
 
           <h4>Dependency management</h4>
@@ -189,14 +192,14 @@
           However, before distributing your project, executing a <code class="inline-code">build</code> is mandatory so that your project does not
           rely on temporary files anymore!</p>
 
-          <h3>Mettre à jour RMEBuilder</h3>
+          <h3>Updating RMEBuilder</h3>
           <p>
-            Quand une mise à jour de <strong>RMEBuilder</strong> est disponible, le logiciel vous prévient,
-            il suffit de valider la mise à jour et le logiciel se met tout seul à jour.
+            When an update for <strong>RMEBuilder</strong> is available, the application will warn you.
+            You simply need to confirm it and it will update itself.
           </p>
 
           <a class="image" href="images/maj.gif"><img src="images/maj.gif" alt="launch RME!"/>
-          Agrandir !</a>
+          Zoom in!</a>
 
           <h3>Avant de diffuser son projet</h3>
           <p>
