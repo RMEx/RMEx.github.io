@@ -201,39 +201,41 @@
           <a class="image" href="images/maj.gif"><img src="images/maj.gif" alt="launch RME!"/>
           Zoom in!</a>
 
-          <h3>Avant de diffuser son projet</h3>
+          <h3>Before publishing your project</h3>
           <p>
-            Une fois que votre projet est fini, vous pouvez supprimer le fichier <code class="inline-code">build_schema.rb</code> (sans avoir oublié de faire
-            une dernière fois <code class="inline-code">build</code>, pour être sur que tous vos scripts sont installés) du répertoire du projet. Et il ne vous reste
-            plus qu'a crypter (ou pas) votre projet et le diffuser !
+            Once your project is complete, you can remove the <code class="inline-code">build_schema.rb</code>
+            file (don't forget to <code class="inline-code">build</code>, in order to make sure all your scripts
+            are installed) from the project folder. Now all that's left is to encrypt (or not) your project
+            and diffuse it!
           </p>
 
-          <h2>Pour les scripteurs</h2>
+          <h2>For scripters</h2>
           <p>
-            <strong>RMEBuilder</strong> n'est évidemment pas destiné à ne rester qu'un outil pour diffuser
-            <strong>nos</strong> scripts. Nous espérons qu'il sera utilisé par un maximum pour partager facilement
-            des scripts à travers le monde ! (étoiles dans les yeux)
+            <strong>RMEBuilder</strong> is obviously not destined to be used to publish and store only
+            <strong>our</strong> scripts. We hope that it will be used by a lot of people to easily share
+            scripts throughout the world! (starry eyes)
           </p>
 
-          <h3>Rendre un script accessible depuis RMEBuilder</h3>
-          <h4>Medium de publication</h4>
+          <h3>Make a script available in RMEBuilder</h3>
+          <h4>Publishing medium</h4>
           <p>
-            Pour qu'un script soit accessible depuis <strong>RMEBuilder</strong>, il est important de comprendre
-            qu'il doit être disponible depuis le net. Pour cela, nous avons pris l'habitude d'utiliser <a href="https://www.github.com">Github</a>,
-            qui nous permet de versionner nos scripts, cependant, vous pouvez vous servir de Dropbox (même si Github est vraiment adapté à ça!).
+            In order for a script to be available in <strong>RMEBuilder</strong>, it is important to understand
+            that it must be available on the internet. For that, we personally use <a href="https://www.github.com">Github</a>,
+            which allows us to manage versions of our scripts. You can also use Dropbox, but Github is really suited for the job!
           </p>
-          <h4>Notion de paquet</h4>
+          <h4>Packages</h4>
           <p>
-            Pour qu'un script soit compréhensible par <strong>RMEBuilder</strong>, il est important
-            que son anatomie soit décrite dans un fichier, qui devra toujours porter le nom <code class="inline-code">package.rb</code>
+            In order for a script to be fully compatible with <strong>RMEBuilder</strong>,
+            its structure must be described in a file that will always be named <code class="inline-code">package.rb</code>.
           </p>
-          <h4>Exemple avec un paquet simple</h4>
+          <h4>Example with a simple package</h4>
           <p>
-            Le paquet pris en exemple est le paquet <code class="inline-code">nuki-break-scene</code>, qui permet de créer facilement
-            un système de pause. <a href="https://github.com/nukiFW/RPGMaker/tree/master/break-scene">Son répertoire Github se trouve ici</a>.
+            The package used in this example is <code class="inline-code">nuki-break-scene</code>,
+            which allows users to easily create pause systems.
+            <a href="https://github.com/nukiFW/RPGMaker/tree/master/break-scene">Its Github folder can be found here</a>.
             <br />
-            L'anatomie du paquet est assez simple, <code class="inline-code">script.rb</code> est le script (logique!) et <code class="inline-code">package.rb</code> décrit
-            le paquet :
+            The package's structure is simple enough: <code class="inline-code">script.rb</code> is the script (elementary!)
+            and <code class="inline-code">package.rb</code> describes the package:
 <pre><code class="ruby"># Package description
   Package.new(
   	name: 'nuki-break-scene',
@@ -243,20 +245,20 @@
   	description: 'Provide a little customizable scene for InGame\'s pause',
   )
 </code></pre>
-            Comme vous pouvez le voir, il suffit d'instancier un objet <code class="inline-code">Package</code>.
-            Ce paquet correspond au strict minimum.
+	    As you can see, you simply need to instantiate a <code class="inline-code">Package</code> object.
+	    This is the minimum required for a package.
             <ul>
-              <li><code class="inline-code">name</code>: correspond au nom du paquet</li>
-              <li><code class="inline-code">version</code>: décrit la version (c'est grâce à cet argument qu'on peut décrire les mises à jour)</li>
-              <li><code class="inline-code">authors</code>: un hash avec comme clé l'auteur et comme valeur son courriel</li>
-              <li><code class="inline-code">components</code>: une liste des fichiers, dans l'ordre, qui constituent le script. Leur chemin est relatif au fichier <code class="inline-code">package.rb</code></li>
-              <li><code class="inline-code">description</code>: une petite description du paquet</li>
+              <li><code class="inline-code">name</code>: name of the package</li>
+              <li><code class="inline-code">version</code>: version number (updates can work thanks to this argument)</li>
+              <li><code class="inline-code">authors</code>: a hash with the authors as keys and their email addresses as values</li>
+              <li><code class="inline-code">components</code>: an ordered list of the script files. Their path is relative to the <code class="inline-code">package.rb</code> file</li>
+              <li><code class="inline-code">description</code>: a little description for the package</li>
             </ul>
           </p>
-          <h4>Exemple avec plusieurs fichiers</h4>
+          <h4>Example with several files</h4>
           <p>
-            Cette fois ci on se sert <a href="https://github.com/RMEx/RME/tree/master/src">du paquet de RME</a>. Comme vous pouvez le voir, il n'y a pas beaucoup
-            de changements, si ce n'est qu'il y a plusieurs auteurs et plusieurs fichiers constituants :
+            This time we are going to use <a href="https://github.com/RMEx/RME/tree/master/src">the RMD package</a> as an example.
+            As you can see, there is not a lot of changes, except that there are several authors and several files:
 <pre><code class="ruby"># Package description
 Package.new(
   name: 'RME',
@@ -285,13 +287,13 @@ Package.new(
 )
 </code></pre>
           </p>
-          <h4>Exemple avec dépendances</h4>
+          <h4>Example with dependencies</h4>
           <p>
-            Le script <code class="inline-code">DisplayText</code>
-            (<a href="https://github.com/nukiFW/RPGMaker/tree/master/DisplayText">visible ici</a>)
-            requiert l'installation préalable du script <code class="inline-code">StandardizeRGSS</code>.
-            Il suffit de le spécifier dans un argument <code class="inline-code">dependancies</code>, qui prend
-            une liste des scripts dont dépendent le script en question :
+            The <code class="inline-code">DisplayText</code> script
+            (<a href="https://github.com/nukiFW/RPGMaker/tree/master/DisplayText">which can be found here</a>)
+            requires installing the <code class="inline-code">StandardizeRGSS</code> script beforehand.
+            You simply need to specify it in a <code class="inline-code">dependancies</code> argument, which
+            takes a list of scripts on which the current script depends:
 <pre><code># Package description
 Package.new(
   name: 'display-text',
@@ -301,16 +303,16 @@ Package.new(
   description: 'Provide a full customisable text engine',
   dependancies: ["standardize-rgss"]
 )</code></pre>
-Voila, vous en savez assez pour packager correctement vos scripts!
+That's it, you know enough to start correctly packaging your scripts!
           </p>
 
-          <h4>Exemple avec des Assets</h4>
+          <h4>Example with assets</h4>
           <p>
-            Il arrive qu'un script soit compléter de fichiers complémentaires, des assets. Par exemple, une DLL
-            ou encore des images. Pour ça il suffit d'ajouter un paramètre <code class="inline-code">assets</code>
-            qui est un <strong>Hash</strong> dont la clé est l'url (relatif ou non) de la ressource et la valeur est
-            sa position dans le projet. Voici par exemple <a href="https://github.com/hyperaho/RPGMaker/tree/master/useless">le fichier paquet du script "raho-useless"</a>, qui ne sert que
-            de démonstration aux assets :
+            It can happen that a script contains additional files: assets. For example, a DLL or images.
+            To include them you simply need to add an <code class="inline-code">assets</code> parameter, which is
+            a <strong>Hash</strong> whose keys are resource URLs (relative or not) and values are their positions in the project.
+            For example, here is <a href="https://github.com/hyperaho/RPGMaker/tree/master/useless">the "raho-useless" package file</a>
+            which doesn't have any use except demonstrating how assets work:
 
 
 <pre><code># Package description
@@ -327,15 +329,15 @@ Package.new(
 )
 </code></pre>
 
-            Ce paquet utilise volontairement une image relative et une image absolue.
+            This package uses two images: one with a relative paht and the other with an absolute path.
           </p>
 
           <p class="alert">
-            Attention ! N'oubliez pas que <strong>RMEBuilder</strong> se veut utilisé par un maximum
-            de personne, n'hésitez donc pas à préfixer vos assets pour éviter les collisions !
-            Par exemple, si je propose un menu qui utilise une image, ne pas hésiter à nommer l'image
-            <code class="inline-code">nuki-menu-mon-image.png</code>, pour garantir qu'elle n'écrase aucune image
-            (ou qu'elle ne soit écrasée par personne).
+            Beware! Don't forget that <strong>RMEBuilder</strong>'s goal is to be used by lots of people,
+            so consider prefixing your assets in order to avoid collisions!
+            For example, if I publish a menu that uses an image, I should name the image
+            <code class="inline-code">nuki-menu-my-image.png</code> in order to guarantee that it does not
+            override (and that it is not overriden by) any other image.
           </p>
 
           <h4>Soumettre son paquet comme un patch à RMEBuilder</h4>
