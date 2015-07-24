@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
+  color: #36464F;
+  background-color: #FFF;
+}
+
+a {
+  color: #45B29D;
+  text-decoration: none;
+}
+
+#top-pan {
+    position:absolute;
+    top: 0; left: 0; right: 0;
+    background-color: #19BEC0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row wrap;
+    justify-content: space-between;
+
+}
+
+
+#top-pan img {
+  margin: 5px;
+}
+
+
+#nav {
+    display: flex;
+    padding-right: 32px;
+}
+
+#nav > * {
+    margin: auto;
+    margin-right: 32px;
+}
+
+#nav > a {
+    color: #BBEBE8;
+    font-weight: 900;
+    display:block;
+}
+
+#nav > a:hover {
+    color: #FFF;
+    font-weight: 900;
+}
+
+#top-pan > h1 {
+    margin: auto;
+    padding-left: 32px;
+    width: 100%;
+    text-align:left;
+    font-weight: 900;
+    color: #113F59;
+}
+
+
+#left-pan {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0px;
+    width: 300px;
+    background-color: #113F59;
+    color: white;
+    /* padding: 1%; */
+    padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#right-pan {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 300px;
+    right: 0;
+    padding: 2%;
+    overflow: auto;
+    display: flex;
+}
+
+
+#left-pan-content > h2 {
+    margin: 0;
+    color: #E27A3F;
+    font-size: 120%;
+    margin-top: 12px;
+}
+
+
+#left-pan-content > ol {
+    padding-left: 24px;
+    margin-bottom: 32px;
+}
+#left-pan-content > ol > li {
+    padding: 4px;
+    font-size: 80%;
+    color: rgb(25,190,192);
+}
+.section-title {
+  font-weight: 900;
+  color: white;
+}
+
+#left-pan-content a {
+  display: block;
+  background-color:rgb(27,73,99);
+  margin: 2px;
+  padding: 4px;
+}
+
+.section-list {
+  list-style-type:upper-roman;
+}
