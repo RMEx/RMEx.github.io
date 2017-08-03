@@ -68,10 +68,18 @@ function drawCategoryList() {
   });
 };
 
+function has(command) {
+    var samples = find_sample(command.name);
+    if (samples.length > 0) {
+        return 'cmd_has_sample';
+    } return 'cmd_has_no_sample';
+}
+
 function drawCommandList(category, id_cat) {
     $.each(category.commands, function(i, command) {
         $('#left-pan ul:last').append('<li data-cat-id="'
                                       + id_cat + '" data-command-id="' + i + '">'
+                                      + '<span class="'+(has(command))+'"></span> '
                                       + command.name + '</li>');
     });
 };
@@ -84,6 +92,7 @@ function drawCommandListWithGrep(list) {
         $('#left-pan ul:last').append('<li data-cat-id="'
                                       + data.cat_id+'" data-command-id="'
                                       + data.comm_id+'">'
+                                      + '<span class="'+(has(command))+'"></span> '
                                       + command.name + '</li>');
     });
 };

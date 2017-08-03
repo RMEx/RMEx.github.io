@@ -146,11 +146,13 @@ a {
     margin-top: 12px;
 }
 
+.legend, 
 #left-pan-content > ul {
     margin: 0;
     padding: 0;
     margin-bottom: 32px;
 }
+.legend > li,
 #left-pan-content > ul > li {
     padding: 4px;
     list-style-type: none;
@@ -291,4 +293,27 @@ a {
 }
 .event_code *{
   white-space: nowrap;
+}
+
+
+.cmd_has_sample {
+    color: green; 
+    padding: 2px;
+    margin-right: 12px;
+    font-style: italic;
+}
+
+.cmd_has_no_sample {
+    color: red; 
+    padding: 2px;
+    margin-right: 12px;
+    font-style: italic;
+}
+
+.cmd_has_sample::before {
+    content: "v"
+}
+
+.cmd_has_no_sample::before {
+    content: "x"
 }
