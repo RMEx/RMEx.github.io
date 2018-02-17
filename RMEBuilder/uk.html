@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../style.css" />
         <title>RMEBuilder</title>
     </head>
@@ -16,10 +16,10 @@
           </div>
           <p class="alert">
             If you're using Windows 10, you have to change the properties of the console (just before
-            the bug) : 
+            the bug) :
             Simply select the 'Use Legacy console' on the Options tab. (To find it right click the top left corner of the CMD window and select properties)
             Special thanks to <a href="https://stackoverflow.com/questions/33873205/install-rhc-client-tools-openshift-on-windows-10/34546532#34546532">this thread</a>.
-          </p>  
+          </p>
           <p>
             <strong>RMEBuilder</strong> is a tool for installing scripts in <strong>RPGMaker VXAce</strong>.
             It makes dependency management easier. On top of the comfort it provides, <strong>RMEBuilder</strong>
@@ -111,7 +111,7 @@
 
           <h4>Modifying the schema</h4>
           <p>
-            By default, during the compilation step (which we will see later), 
+            By default, during the compilation step (which we will see later),
             scripts are installed in the order in which they were added. Obviously, you can change the order:
             <ul>
               <li><code class="inline-code">remove package-name</code>: removes the package from the list</li>
@@ -133,7 +133,7 @@
           and assembling them in the <code class="inline-code">Scripts.rvdata2</code> file.</p>
 
           <p class="alert">
-            Be aware that, before compiling your project, it is mandatory that you close it in RPGMaker. 
+            Be aware that, before compiling your project, it is mandatory that you close it in RPGMaker.
             You will be able to open it back later, once the compilation is done.
           </p>
 
@@ -143,7 +143,7 @@
           <p>
             When the <code class="inline-code">build</code> command is used, the application will download all
             unknown scripts, and will then make a <code class="inline-code">Scripts.rvdata2</code> file, which it
-            will merge with the other scripts. 
+            will merge with the other scripts.
             This means your project can have pre-installed scripts without problem. <br />
             Each time the <code class="inline-code">build</code> command is called, elements built by
             <strong>RMEBuilder</strong> are purged. Thus, if you decide to remove an element from your schema
