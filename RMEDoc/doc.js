@@ -536,7 +536,18 @@ var documentation = [
 {"name":"player_width", "description":"Renvoie la largeur en pixel du héros", "returnable":true,"parameters":[]},
 {"name":"player_height", "description":"Renvoie la largeur en pixel du héros", "returnable":true,"parameters":[]},
 {"name":"character_width", "description":"Renvoie la largeur en pixel d'un character dans une charactersheet", "returnable":true,"parameters":[{"name":"name", "desc":"Le fichier (présent dans le dossier Graphics/Characters)", "type":"String"}]},
-{"name":"character_height", "description":"Renvoie la hauteur en pixel d'un character dans une charactersheet", "returnable":true,"parameters":[{"name":"name", "desc":"Le fichier (présent dans le dossier Graphics/Characters)", "type":"String"}]}
+{"name":"character_height", "description":"Renvoie la hauteur en pixel d'un character dans une charactersheet", "returnable":true,"parameters":[{"name":"name", "desc":"Le fichier (présent dans le dossier Graphics/Characters)", "type":"String"}]},
+{"name":"event_walk_animation", "description":"Active ou désactive l'animation de marche d'un évènement", "returnable":true,"parameters":[{"name":"id", "desc":"ID de l'évènement", "type":"Fixnum"},
+{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"player_walk_animation", "description":"Active ou désactive l'animation de marche du joueur", "returnable":true,"parameters":[{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"event_step_animation", "description":"Active ou désactive l'animation de marche l'arrêt d'un évènement", "returnable":true,"parameters":[{"name":"id", "desc":"ID de l'évènement", "type":"Fixnum"},
+{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"player_step_animation", "description":"Active ou désactive l'animation de marche à l'arrêt du joueur", "returnable":true,"parameters":[{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"event_direction_fix", "description":"Active/Désactive (et renvoie) la direction fixe pour un évenement", "returnable":true,"parameters":[{"name":"id", "desc":"ID de l'évènement", "type":"Fixnum"},
+{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"player_direction_fix", "description":"Active/Désactive (et renvoie) la direction fixe pour le joueur", "returnable":true,"parameters":[{"name":"*value", "desc":"true pour activer, false pour désactiver. Si aucun argument n'est fourni, la commande renverra la valeur sans rien modifier", "type":"Boolean"}]},
+{"name":"event_dashing?", "description":"Renvoie true si l'évènement est en train de courrir, false sinon", "returnable":true,"parameters":[{"name":"id", "desc":"l'ID de l'évènement", "type":"Fixnum"}]},
+{"name":"player_dashing?", "description":"Renvoie true si le joueur est en train de courrir, false sinon", "returnable":true,"parameters":[]}
 ]},
 {"name":"Clavier","desc":"Commandes relatives au clavier","commands":[
 {"name":"key_trigger?", "description":"Renvoie true si la touche passée en argument (cf:attributs) vient d'être pressée, false sinon", "returnable":true,"parameters":[{"name":"key", "desc":"Symbole référençant une touche (cf:attributs)", "type":"Symbol"}]},
@@ -735,7 +746,8 @@ var documentation = [
 {"name":"idB", "desc":"ID de la seconde image", "type":"Fixnum"}]},
 {"name":"fresh_picture_id", "description":"Génère un ID non utilisé pour une picture", "returnable":true,"parameters":[]},
 {"name":"picture_z", "description":"Modifie la valeur Z de l'image référencée par son ID. Si aucune valeur n'est donnée, la commande renverra la valeur courante", "returnable":true,"parameters":[{"name":"id", "desc":"ID de l'image", "type":"Fixnum"},
-{"name":"*z", "desc":"Position Z de l'image'. Si aucune valeur n'est données, la commande renverra la valeur courante Z", "type":"Fixnum"}]}
+{"name":"*z", "desc":"Position Z de l'image'. Si aucune valeur n'est données, la commande renverra la valeur courante Z", "type":"Fixnum"}]},
+{"name":"get_picture_opacity", "description":"Renvoie l'opacité d'une image référencée par son ID", "returnable":true,"parameters":[{"name":"id", "desc":"ID de l'image", "type":"Fixnum"}]}
 ]},
 {"name":"Spritesheet","desc":"Commandes relatives à la manipulation des feuilles de Sprites","commands":[
 {"name":"spritesheet_show", "description":"Affiche une spritesheet à l'écran", "returnable":false,"parameters":[{"name":"id", "desc":"ID de la spritesheet", "type":"Fixnum"},
@@ -1239,6 +1251,7 @@ var documentation = [
 {"name":"element_id", "desc":"Id de l'élément", "type":"Fixnum"}]}
 ]},
 {"name":"Techniques","desc":"Offre des commandes pour obtenir des informations sur les techniques","commands":[
+{"name":"last_used_item", "description":"Renvoie l'id du dernier objet utilisé", "returnable":true,"parameters":[]},
 {"name":"skill_scope", "description":"Renvoie la portée (en Entier) d'une technique référencée par son ID", "returnable":true,"parameters":[{"name":"id", "desc":"Id de la techinuqe", "type":"Fixnum"}]},
 {"name":"skill_has_no_scope?", "description":"Renvoie true si la technique référencée par son ID ne cible personne, false sinon", "returnable":true,"parameters":[{"name":"id", "desc":"Id de la technique", "type":"Fixnum"}]},
 {"name":"skill_for_one_enemy?", "description":"Renvoie true si la technique référencée par son ID cible un ennemi, false sinon", "returnable":true,"parameters":[{"name":"id", "desc":"Id de la technique", "type":"Fixnum"}]},
