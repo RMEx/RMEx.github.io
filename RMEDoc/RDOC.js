@@ -181,7 +181,7 @@ function makeParametersTable(command, params) {
     $.each(params, function(i, p) {
       var type = '';
       if(p.type === 'Easing') {
-        type = "<a href='https://github.com/RMEx/RME/wiki/Fonctions-d'interpolation'>"+p.type+'</a> (wiki)';
+        type = "<a href='https://github.com/RMEx/RME/wiki/Fonctions-d%27interpolation'>"+p.type+'</a> (wiki)';
         console.log(type);
       } else if(p.type === 'Key') {
         type = "<a href='https://github.com/RMEx/RME/wiki/Touches-clavier'>"+p.type+'</a> (wiki)';
